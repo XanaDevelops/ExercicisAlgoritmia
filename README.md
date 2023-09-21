@@ -1,0 +1,2 @@
+# ExercicisAlgoritmia
+Exercicis d'Algoritmia
