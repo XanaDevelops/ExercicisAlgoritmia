@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package exercici3;
-
+import exercici3.Figures.*;
 /**
  *
  * @author danie
