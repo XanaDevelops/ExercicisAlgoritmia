@@ -24,7 +24,8 @@ public class Exercici3 {
     Heu de poder ordenar les figures per àrees i per perímetre i mostrar les 10 primeres.
     Heu de documentar el codi amb JavaDoc
 
-Nota: Els resultats s'han de mostrar per la sortida estàndard i heu d'utilitzar el mínim número  de while/for.*/
+Nota: Els resultats s'han de mostrar per la sortida estàndard i heu d'utilitzar el mínim número  de while/for.
+        Hola desde Netbeans*/
         
     }
     
