@@ -14,4 +14,13 @@ public abstract class Figura {
     
     public abstract void cArea();
     public abstract void cPerimetro();
+
+    public double getArea() {
+        return area;
+    }
+
+    public double getPerimetro() {
+        return perimetro;
+    }
+    
 }
