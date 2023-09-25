@@ -6,31 +6,27 @@ package exercici3.Figures;
 
 /**
  *
- * @author daniel
+ * @author trufi
  */
-public class Triangulo extends Figura { //equilatero
-    
-    private double b, h;
-    
-    public Triangulo(double b){
-        this.b  = b;
-        this.h = calculateH(this.b);
+public class Quadrat extends Figura {
+
+    private double costat;
+
+    public Quadrat(double costat) {
+        this.costat = costat;
         cArea();
         cPerimetro();
-    }
-    
-    private double calculateH(double cateto){
-       return Math.pow(cateto,2)+Math.pow(cateto/2, 2);
+
     }
 
     @Override
     public void cArea() {
-        this.area=(this.b*this.h)/2;
+        this.area = Math.pow(this.costat, 2);
     }
 
     @Override
     public void cPerimetro() {
-        this.perimetro=3*b;
+        this.perimetro = 4 * this.costat;
     }
-    
+
 }
