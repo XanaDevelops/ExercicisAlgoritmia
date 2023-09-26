@@ -23,7 +23,7 @@ public class Exercici3 {
         Heu de documentar el codi amb JavaDoc
 
     Nota: Els resultats s'han de mostrar per la sortida estàndard i heu d'utilitzar el mínim número  de while/for./*
-    
+    #esto es una prueba jajajajajajajajajajjajajajajajajajajajajajajajajajajajajajajajajajja
     */
     /**
      * @param args the command line arguments
