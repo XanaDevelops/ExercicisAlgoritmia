@@ -23,4 +23,8 @@ public abstract class Figura {
         return perimetro;
     }
     
+    @Override
+    public String toString(){
+        return "Figura A:" +area+ " P:"+perimetro;
+    }
 }

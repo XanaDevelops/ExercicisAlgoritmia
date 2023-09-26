@@ -8,11 +8,11 @@ package exercici3.Figures;
  *
  * @author daniel
  */
-public class Triangulo extends Figura { //equilatero
+public class Triangle extends Figura { //equilatero
     
     private double b, h;
     
-    public Triangulo(double b){
+    public Triangle(double b){
         this.b  = b;
         this.h = calculateH(this.b);
         cArea();

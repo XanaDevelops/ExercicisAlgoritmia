@@ -8,12 +8,12 @@ package exercici3.Figures;
  *
  * @author trufi
  */
-public class Rectangulo extends Figura {
+public class Rectangle extends Figura {
 
     private double b;
     private double h;
 
-    public Rectangulo(double b, double h) {
+    public Rectangle(double b, double h) {
         this.b = b;
         this.h = h;
         cArea();
