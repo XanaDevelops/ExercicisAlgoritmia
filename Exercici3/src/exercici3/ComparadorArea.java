@@ -14,7 +14,7 @@ import java.util.Comparator;
 public class ComparadorArea implements Comparator<Figura>{
     @Override
     public int compare(Figura f1, Figura f2) {
-        return Double.compare(f1.getArea(), f2.getArea());
+        return -Double.compare(f1.getArea(), f2.getArea());
     }
     
 }

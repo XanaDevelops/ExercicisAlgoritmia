@@ -20,12 +20,12 @@ public class Quadrat extends Figura {
     }
 
     @Override
-    public void cArea() {
-        this.area = Math.pow(this.costat, 2);
+    protected void cArea() {
+        this.area = costat*costat;
     }
 
     @Override
-    public void cPerimetro() {
+    protected void cPerimetro() {
         this.perimetro = 4 * this.costat;
     }
 

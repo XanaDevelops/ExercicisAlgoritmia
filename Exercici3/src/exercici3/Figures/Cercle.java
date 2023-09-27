@@ -19,13 +19,13 @@ public class Cercle extends Figura {
     }
     
     @Override
-    public void cArea() {
-        this.area = Math.pow(this.radio, 2) * Math.PI;
+    protected void cArea() {
+        this.area = radio*radio * Math.PI;
 
     }
 
     @Override
-    public void cPerimetro() {
+    protected void cPerimetro() {
         this.perimetro = 2 * radio * Math.PI;
     }
 

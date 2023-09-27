@@ -12,13 +12,9 @@ import java.util.Comparator;
  * @author trufi
  */
 public class ComparadorPerimetro implements Comparator<Figura>{
- 
-    
-   
-
     @Override
     public int compare(Figura f1, Figura f2) {
-        return Double.compare(f1.getPerimetro(), f2.getPerimetro());
+        return -Double.compare(f1.getPerimetro(), f2.getPerimetro());
     }
     
 }

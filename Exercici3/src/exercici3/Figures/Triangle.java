@@ -19,17 +19,17 @@ public class Triangle extends Figura { //equilatero
         cPerimetro();
     }
     
-    private double calculateH(double cateto){
-       return Math.pow(cateto,2)+Math.pow(cateto/2, 2);
+    private double calculateH(double c){
+       return Math.sqrt(c*c - (c*c/4));
     }
 
     @Override
-    public void cArea() {
-        this.area=(this.b*this.h)/2;
+    protected void cArea() {
+        this.area=(this.b*this.h)/2d;
     }
 
     @Override
-    public void cPerimetro() {
+    protected void cPerimetro() {
         this.perimetro=3*b;
     }
     

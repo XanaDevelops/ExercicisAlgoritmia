@@ -21,14 +21,14 @@ public class Rectangle extends Figura {
     }
 
     @Override
-    public void cArea() {
+    protected void cArea() {
         this.area = this.b * this.h;
 
     }
 
     @Override
-    public void cPerimetro() {
-        this.perimetro = 2 * b + 2 * h;
+    protected void cPerimetro() {
+        this.perimetro = 2*(b+h);
     }
 
 }

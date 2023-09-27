@@ -12,8 +12,14 @@ public abstract class Figura {
     protected double area;
     protected double perimetro;
     
-    public abstract void cArea();
-    public abstract void cPerimetro();
+    /**
+     * genera area
+     */
+    protected abstract void cArea();
+    /**
+     * genera perimetre
+     */
+    protected abstract void cPerimetro();
 
     public double getArea() {
         return area;
@@ -25,6 +31,6 @@ public abstract class Figura {
     
     @Override
     public String toString(){
-        return "Figura A:" +area+ " P:"+perimetro;
+        return this.getClass().getSimpleName()+" Area:" +area+ " Perimetre:"+perimetro;
     }
 }
