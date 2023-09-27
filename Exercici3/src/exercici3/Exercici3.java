@@ -7,40 +7,12 @@ package exercici3;
 import exercici3.Figures.*;
 import java.util.Random;
 import java.util.Arrays;
-import java.util.Comparator;
+
 
 /**
  *
  * @author danie
  */
-class CompareArea implements Comparator<Figura> {
-
-    @Override
-    public int compare(Figura f1, Figura f2) {
-        if(f1.getArea()<f2.getArea()){
-            return -1;
-        }else if(f1.getArea()>f2.getArea()){
-            return 1;
-        }
-        return 0;
-    }
-
-}
-
-class ComparePerimetre implements Comparator<Figura> {
-
-    @Override
-    public int compare(Figura f1, Figura f2) {
-        if(f1.getPerimetro()<f2.getPerimetro()){
-            return -1;
-        }else if(f1.getPerimetro()>f2.getPerimetro()){
-            return 1;
-        }
-        return 0;
-    }
-
-}
-
 public class Exercici3 {
 
     /*
@@ -110,9 +82,9 @@ public class Exercici3 {
             System.out.println("\t" + sumPeriTipus[i]);
         }
 
-        Arrays.sort(figures, new CompareArea());
+        Arrays.sort(figures, new ComparadorArea());
         System.out.println("Area:" +figures[0]+" "+figures[N-1]); //implementar toString()
-        Arrays.sort(figures, new ComparePerimetre());
+        Arrays.sort(figures, new ComparadorPerimetro());
         System.out.println("Perimetre:" +figures[0]+" "+figures[N-1]); //implementar toString()
         
         //for con las figuras con lo mismo
