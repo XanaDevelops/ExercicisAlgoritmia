@@ -25,7 +25,7 @@ public class Exercici3 {
 
     Nota: Els resultats s'han de mostrar per la sortida estàndard i heu d'utilitzar el mínim número  de while/for./*
      */
-    private static final int N = 10000, MAXD = 100;
+    private static final int N = 10000, MAXD = 1000;
     private static final int CE = 0, TR = 1, QU = 2, RE = 3;
     
     private double[] sumAreaTipus = new double[4];
