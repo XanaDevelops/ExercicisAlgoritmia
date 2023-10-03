@@ -15,33 +15,64 @@ import java.lang.Class;
  * @author daniel
  */
 public class CuaPunters<E> implements Cua<E> {
-    
-    private final int N;
-    private E[] elems;
-    
-    public CuaPunters(int n, Class<E> c){
-        N=n;
-        elems = (E[]) Array.newInstance(c, N);
+
+    Node<E> first, last;
+
+    public CuaPunters() {
+        first = null;
+        last = null;
     }
 
     @Override
-    public void queue(E elem) throws CuaFullException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void queue(E elem) {
+        Node<E> node = new Node(elem);
+        node.setNext(last);
+        node.setPrev(null);
+        if (first == null) {
+            first = node;
+        }
+        if (last != null) {
+            last.setPrev(node);
+        }
+
+        last = node;
+
     }
 
     @Override
     public void dequeue() throws CuaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (first == null) {
+            throw new CuaEmptyException();
+        }
+        Node node = first;
+        first = node.getPrev();
+        if (first != null) {
+            first.setNext(null);
+        } else {
+            last = null;
+        }
+
     }
 
     @Override
     public E first() throws CuaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (first == null) {
+            throw new CuaEmptyException();
+        }
+        return first.getElem();
+    }
+
+    @Override
+    public E last() throws CuaEmptyException {
+        if (last == null) {
+            throw new CuaEmptyException();
+        }
+        return last.getElem();
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return first==null;
     }
-    
+
 }

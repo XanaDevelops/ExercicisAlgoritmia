@@ -14,24 +14,38 @@ import PilaCua.Interfaces.Pila;
  */
 public class PilaPunters<E> implements Pila<E> {
 
+    private Node<E> top;
+    
+    public PilaPunters(){
+        top=null;
+    }
+    
     @Override
-    public void push(E elem) throws PilaFullException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void push(E elem) {
+        Node<E> node = new Node<>(elem);
+        node.setPrev(top);
+        top = node;
     }
 
     @Override
     public void pop() throws PilaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(top==null){
+            throw new PilaEmptyException();
+        }
+        top = top.getPrev();
     }
 
     @Override
     public E top() throws PilaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(top==null){
+            throw new PilaEmptyException();
+        }
+        return top.getElem();
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return top==null;
     }
     
 }

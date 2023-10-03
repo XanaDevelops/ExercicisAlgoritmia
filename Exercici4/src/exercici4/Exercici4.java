@@ -4,8 +4,14 @@
  */
 package exercici4;
 
+import PilaCua.CuaPunters;
+import PilaCua.Exceptions.CuaEmptyException;
+import PilaCua.Exceptions.PilaEmptyException;
+import PilaCua.PilaPunters;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,17 +35,56 @@ public class Exercici4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-       new Exercici4();
+        try {
+            // TODO code application logic here
+            new Exercici4();
+        } catch (CuaEmptyException ex) {
+            Logger.getLogger(Exercici4.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PilaEmptyException ex) {
+            Logger.getLogger(Exercici4.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    private Exercici4() {
+    private Exercici4() throws CuaEmptyException, PilaEmptyException {
+        testCua();
+    }
+
+    private void testCua() throws CuaEmptyException, PilaEmptyException {
+        CuaPunters<Elem> cp = new CuaPunters<>();
+        for (int i = 0; i < 10; i++) {
+            cp.queue(new Elem(i));
+            System.out.println(cp.first());
+            System.out.println(cp.last() + "\n");
+        }
+
+        for (int i = 0; i < 10; i++) {
+            cp.dequeue();
+            if (!cp.isEmpty()) {
+                System.out.println(cp.first());
+                System.out.println(cp.last() + "\n");
+            }
+        }
+        
+        PilaPunters<Elem> pp = new PilaPunters<>();
+        for (int i = 0; i < 10; i++) {
+            pp.push(new Elem(i));
+            System.out.println(pp.top()+"\n");
+        }
+
+        for (int i = 0; i < 10; i++) {
+            pp.pop();
+            if (!pp.isEmpty()) {
+                System.out.println(pp.top() + "\n");
+            }
+        }
+    }
+
+    private void ordenacions() {
         Elem[] elems = new Elem[5];
         this.ordenarComparable(elems);
         this.ordenarComparator(elems, (Comparator<Elem>) (Elem o1, Elem o2) -> {
-            return o1.getValor()-o2.getValor();
+            return o1.getValor() - o2.getValor();
         });
-
     }
 
     private void ordenarComparable(Comparable[] elems) {
@@ -48,9 +93,7 @@ public class Exercici4 {
     }
 
     private <T> void ordenarComparator(T[] elems, Comparator<T> comp) {
-        
+
     }
-    
-    
 
 }
