@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package PilaCua;
+package PilaCua.Exceptions;
 
 /**
  *
  * @author daniel
  */
-class PilaCuaEmptyException extends Exception {
+public class CuaEmptyException extends Exception {
     
 }

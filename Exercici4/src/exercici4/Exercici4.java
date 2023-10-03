@@ -4,6 +4,7 @@
  */
 package exercici4;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -23,30 +24,33 @@ public class Exercici4 {
     2.-TAD Pila i Coa: heu d'implementar amb punters i amb cursos, i de forma genèrica, aquests TAD amb java. Per a la Pila i la Coa heu de definir una Interfície. 
     A partir de la interfície heu de fer la implementació per punters i la implementació per cursors. Si no sabeu quina especificació utilitzar podeu usar la de l'API de Java.
     Heu de documentar el codi amb JavaDoc.
-    */
-    
-    
+     */
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       new Exercici4();
+    }
+
+    private Exercici4() {
+        Elem[] elems = new Elem[5];
+        this.ordenarComparable(elems);
+        this.ordenarComparator(elems, (Comparator<Elem>) (Elem o1, Elem o2) -> {
+            return o1.getValor()-o2.getValor();
+        });
 
     }
-    
-    
-    private Exercici4(){
-        
-    }
-    
-    
-    private void ordenarComparable(Comparable[] elems){
+
+    private void ordenarComparable(Comparable[] elems) {
         //<T extends Comparable<? super T>>
-    
+
     }
-    
-    private void ordenarComparator(Object[] elems, Comparator comp){
+
+    private <T> void ordenarComparator(T[] elems, Comparator<T> comp) {
         
     }
     
+    
+
 }
