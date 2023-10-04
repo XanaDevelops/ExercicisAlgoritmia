@@ -8,31 +8,61 @@ package PilaCua;
 import PilaCua.Exceptions.PilaEmptyException;
 import PilaCua.Exceptions.PilaFullException;
 import PilaCua.Interfaces.Pila;
+import java.lang.reflect.Array;
 
 /**
  *
  * @author daniel
  */
 public class PilaCursor<E> implements Pila<E> {
+     private int top = -1;
+    private E pila[];
+    private int maxim;
+
+    public PilaCursor(int maxim, Class<E> c) {
+        pila = (E[]) Array.newInstance(c, maxim);
+        this.maxim = maxim;
+
+    }
+
 
     @Override
     public void push(E elem) throws PilaFullException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (top + 1 == maxim) {
+
+            throw new PilaFullException();
+        } else {
+            top++;
+            pila[top] =elem;
+
+        }
     }
 
     @Override
     public void pop() throws PilaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       if(top==-1){
+       throw new PilaEmptyException();
+       }
+       else{
+       top--;
+       }
     }
 
     @Override
     public E top() throws PilaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(top==-1){
+       throw new PilaEmptyException();
+       }
+       
+       return pila[top];
+       
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+          boolean vacio=false;
+       if(top==-1){vacio=true;}
+       return vacio;
     }
     
 }

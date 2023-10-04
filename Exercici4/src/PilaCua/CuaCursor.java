@@ -18,7 +18,7 @@ public class CuaCursor<E> implements Cua<E> {
 
     private final int N;
     private final E[] elems;
-    
+    private int  nElements=0;
     private int first, last;
     
     public CuaCursor(int n, Class<E> c){
@@ -30,29 +30,42 @@ public class CuaCursor<E> implements Cua<E> {
     }
     @Override
     public void queue(E elem) throws CuaFullException {
-        if(first>=last){ //TODO
-            elems[first++] = elem;
+        if(nElements<N){ //TODO
+            last=(first+nElements)%N;
+            nElements++;
+            elems[last] = elem;
         }
+        else{throw new CuaFullException();}
     }
 
     @Override
     public void dequeue() throws CuaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      if(nElements<N){ //TODO
+          first=(first+1)%N;
+          nElements--;
+           
+        }
+        else{throw new  CuaEmptyException();} 
     }
 
     @Override
     public E first() throws CuaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(nElements==0){throw new CuaEmptyException();}
+        return elems[first];
+      
     }
 
     @Override
     public E last() throws CuaEmptyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(nElements==0){throw new CuaEmptyException();}
+        return elems[last];
     }
     
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean vacio=false;
+       if(nElements==0){vacio=true;}
+       return vacio;
     }
 
     
