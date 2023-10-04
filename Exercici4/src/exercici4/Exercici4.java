@@ -38,9 +38,7 @@ public class Exercici4 {
         try {
             // TODO code application logic here
             new Exercici4();
-        } catch (CuaEmptyException ex) {
-            Logger.getLogger(Exercici4.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (PilaEmptyException ex) {
+        } catch (CuaEmptyException | PilaEmptyException ex) {
             Logger.getLogger(Exercici4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

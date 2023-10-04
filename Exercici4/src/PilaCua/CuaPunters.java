@@ -72,7 +72,7 @@ public class CuaPunters<E> implements Cua<E> {
 
     @Override
     public boolean isEmpty() {
-        return first==null;
+        return first == null;
     }
 
 }
