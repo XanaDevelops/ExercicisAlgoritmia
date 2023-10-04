@@ -4,9 +4,13 @@
  */
 package exercici4;
 
+import PilaCua.CuaCursor;
 import PilaCua.CuaPunters;
 import PilaCua.Exceptions.CuaEmptyException;
+import PilaCua.Exceptions.CuaFullException;
 import PilaCua.Exceptions.PilaEmptyException;
+import PilaCua.Exceptions.PilaFullException;
+import PilaCua.PilaCursor;
 import PilaCua.PilaPunters;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -38,16 +42,16 @@ public class Exercici4 {
         try {
             // TODO code application logic here
             new Exercici4();
-        } catch (CuaEmptyException | PilaEmptyException ex) {
+        } catch (CuaEmptyException | PilaEmptyException | CuaFullException | PilaFullException ex) {
             Logger.getLogger(Exercici4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private Exercici4() throws CuaEmptyException, PilaEmptyException {
+    private Exercici4() throws CuaEmptyException, PilaEmptyException, CuaFullException, PilaFullException {
         testCua();
     }
 
-    private void testCua() throws CuaEmptyException, PilaEmptyException {
+    private void testCua() throws CuaEmptyException, PilaEmptyException, CuaFullException, PilaFullException {
         CuaPunters<Elem> cp = new CuaPunters<>();
         for (int i = 0; i < 10; i++) {
             cp.queue(new Elem(i));
@@ -73,6 +77,36 @@ public class Exercici4 {
             pp.pop();
             if (!pp.isEmpty()) {
                 System.out.println(pp.top() + "\n");
+            }
+        }
+        
+        System.out.println("CURSORS:");
+        
+        CuaCursor<Elem> cc = new CuaCursor<>(10, Elem.class);
+        for (int i = 0; i < 10; i++) {
+            cc.queue(new Elem(i));
+            System.out.println(cc.first());
+            System.out.println(cc.last() + "\n");
+        }
+
+        for (int i = 0; i < 10; i++) {
+            cc.dequeue();
+            if (!cc.isEmpty()) {
+                System.out.println(cc.first());
+                System.out.println(cc.last() + "\n");
+            }
+        }
+        
+        PilaCursor<Elem> pc = new PilaCursor<>(10, Elem.class);
+        for (int i = 0; i < 10; i++) {
+            pc.push(new Elem(i));
+            System.out.println(pc.top()+"\n");
+        }
+
+        for (int i = 0; i < 10; i++) {
+            pc.pop();
+            if (!pc.isEmpty()) {
+                System.out.println(pc.top() + "\n");
             }
         }
     }

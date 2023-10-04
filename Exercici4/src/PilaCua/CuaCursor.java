@@ -42,7 +42,7 @@ public class CuaCursor<E> implements Cua<E> {
 
     @Override
     public void dequeue() throws CuaEmptyException {
-        if (nElements < N) { //TODO
+        if (nElements < N) { //Esta comparación es la causante, miralo
             first = (first + 1) % N;
             nElements--;
 
