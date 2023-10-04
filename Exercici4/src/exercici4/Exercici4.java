@@ -39,127 +39,143 @@ public class Exercici4 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws CuaEmptyException, CuaFullException, PilaFullException, PilaEmptyException {
-        
-        
-         Exercici4 ord = new Exercici4();
-        Integer[] x = ord.<Integer>ordenarComparator( ord.puntsInicials(100),new ProvaCom());
-        for (int s = 0; s < 100; s++) {
-            System.out.print(x[s] + ", ");
-
-        }
-
-    
-        
-        
-        
-        
-        
+    public static void main(String[] args) {
         try {
             // TODO code application logic here
-            new Exercici4();
+            Exercici4 ord = new Exercici4();
+            Integer[] x = ord.puntsInicials(100);
+            Integer[] y = Arrays.copyOf(x, x.length);
+            
+            System.out.println(Arrays.toString(x));
+            ord.ordenarComparator(x, new ProvaCom());
+            System.out.println(Arrays.toString(x));
+            
+            ord.ordenarComparable(y);
+            System.out.println(Arrays.toString(y)+"\n");
+
+            ord.testCua();
         } catch (CuaEmptyException | PilaEmptyException | CuaFullException | PilaFullException ex) {
             Logger.getLogger(Exercici4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    private Exercici4() throws CuaEmptyException, PilaEmptyException, CuaFullException, PilaFullException {
-        testCua();
-        
+    /*
+    P=∀i: 0<=i<x.lenght: x[i]!=null
+    Q=∀i: 0<=i<x.length-1: x[i]<=x[i+1]
+    */
+    private void ordenarComparable(Comparable[] elems) {
+        boolean canvis = true;
+        Comparable temp;
+        while (canvis == true) {
+            canvis = false;
+            for (int y = 0; y < elems.length; y++) {
+                if ((y + 1 != elems.length)) {
+                    if (1 == elems[y].compareTo(elems[y + 1])) {
+                        temp = elems[y];
+                        elems[y] = elems[y + 1];
+                        elems[y + 1] = temp;
+                        canvis = true;
+                    }
+                }
+            }
+        }
+    }
+    
+    /*
+    P=∀i: 0<=i<x.lenght: x[i]!=null
+    Q=∀i: 0<=i<x.length-1: x[i]<=x[i+1]
+    */
+    private <T> void ordenarComparator(T[] elems, Comparator<T> comp) {
+        boolean canvis = true;
+        T temp;
+        while (canvis == true) {
+            canvis = false;
+            for (int y = 0; y < elems.length; y++) {
+                if ((y + 1 != elems.length)) {
+                    if (-1 == comp.compare(elems[y], elems[y + 1])) {
+                        temp = elems[y];
+                        elems[y] = elems[y + 1];
+                        elems[y + 1] = temp;
+                        canvis = true;
+                    }
+                }
+            }
+        }
     }
 
     private void testCua() throws CuaEmptyException, PilaEmptyException, CuaFullException, PilaFullException {
+        int n = 3;
         CuaPunters<Elem> cp = new CuaPunters<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n; i++) {
             cp.queue(new Elem(i));
             System.out.println(cp.first());
             System.out.println(cp.last() + "\n");
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n; i++) {
             cp.dequeue();
             if (!cp.isEmpty()) {
                 System.out.println(cp.first());
                 System.out.println(cp.last() + "\n");
             }
         }
-        
+
         PilaPunters<Elem> pp = new PilaPunters<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n; i++) {
             pp.push(new Elem(i));
-            System.out.println(pp.top()+"\n");
+            System.out.println(pp.top() + "\n");
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n; i++) {
             pp.pop();
             if (!pp.isEmpty()) {
                 System.out.println(pp.top() + "\n");
             }
         }
-        
+
         System.out.println("CURSORS:");
-        
-        CuaCursor<Elem> cc = new CuaCursor<>(10, Elem.class);
-        for (int i = 0; i < 10; i++) {
+
+        CuaCursor<Elem> cc = new CuaCursor<>(n, Elem.class);
+        for (int i = 0; i < n; i++) {
             cc.queue(new Elem(i));
             System.out.println(cc.first());
             System.out.println(cc.last() + "\n");
         }
+        
+        try{
+            cc.queue(new Elem(-1));
+        }   catch(CuaFullException e){
+            System.out.println("ok CuaFullEx");
+        }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n; i++) {
             cc.dequeue();
             if (!cc.isEmpty()) {
                 System.out.println(cc.first());
                 System.out.println(cc.last() + "\n");
             }
         }
-        
-        PilaCursor<Elem> pc = new PilaCursor<>(10, Elem.class);
-        for (int i = 0; i < 10; i++) {
+
+        PilaCursor<Elem> pc = new PilaCursor<>(n, Elem.class);
+        for (int i = 0; i < n; i++) {
             pc.push(new Elem(i));
-            System.out.println(pc.top()+"\n");
+            System.out.println(pc.top() + "\n");
         }
 
-        for (int i = 0; i < 10; i++) {
+        try{
+            pc.push(new Elem(-1));
+        }   catch(PilaFullException e){
+            System.out.println("ok PilaFullEx");
+        }
+         
+        for (int i = 0; i < n; i++) {
             pc.pop();
             if (!pc.isEmpty()) {
                 System.out.println(pc.top() + "\n");
             }
         }
     }
-
-    private void ordenacions() {
-        Elem[] elems = new Elem[5];
-        this.ordenarComparable(elems);
-        this.ordenarComparator(elems, (Comparator<Elem>) (Elem o1, Elem o2) -> {
-            return o1.getValor() - o2.getValor();
-        });
-    }
-
-    private Comparable[] ordenarComparable(Comparable[] elems) {
-       
-        boolean canvis = true;
-        Comparable temp ;
-        while (canvis == true) {
-            canvis = false;
-            for (int y = 0; y < elems.length; y++) {
-                if ((y + 1 != elems.length)) {
-                    if (1==elems[y].compareTo(elems[y+1])) {
-                        temp = elems[y];
-                        elems[y] = elems[y + 1];
-                        elems[y + 1] = temp;
-                        canvis = true;
-
-                    }
-                }
-            }
-
-        }
-       
-return elems;
-    }
     
-   public Integer[] puntsInicials(int numPunts) {//aquest metode crea un array de nombres desordenats
+    public Integer[] puntsInicials(int numPunts) {//aquest metode crea un array de nombres desordenats
         int i = 0;
         boolean iguals = false;
         Integer[] inicials = new Integer[numPunts];
@@ -171,7 +187,6 @@ return elems;
 
             num = ale.nextInt(numPunts);
             while (z < i && iguals == false) {
-
                 if (inicials[z] == num) {
                     iguals = true;
                 }
@@ -185,36 +200,10 @@ return elems;
             iguals = false;
 
         }
-        for (int s = 0; s < numPunts; s++) {
-            System.out.print(inicials[s] + ", ");
 
-        }
-        System.out.println(" ");
         return inicials;
-
-    }  
-    
-
-    private <T> T[] ordenarComparator(T[] elems, Comparator<T> comp) {
-         boolean canvis = true;
-        T temp ;
-        while (canvis == true) {
-            canvis = false;
-            for (int y = 0; y < elems.length; y++) {
-                if ((y + 1 != elems.length)) {
-                    if (-1==comp.compare(elems[y], elems[y+1])) {
-                        temp = elems[y];
-                        elems[y] = elems[y + 1];
-                        elems[y + 1] = temp;
-                        canvis = true;
-
-                    }
-                }
-            }
-
-        }
-        return elems;
 
     }
 
+    
 }
