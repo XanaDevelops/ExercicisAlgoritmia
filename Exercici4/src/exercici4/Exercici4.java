@@ -14,6 +14,7 @@ import PilaCua.PilaCursor;
 import PilaCua.PilaPunters;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,7 +39,22 @@ public class Exercici4 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CuaEmptyException, CuaFullException, PilaFullException, PilaEmptyException {
+        
+        
+         Exercici4 ord = new Exercici4();
+        Integer[] x = ord.<Integer>ordenarComparator( ord.puntsInicials(100),new ProvaCom());
+        for (int s = 0; s < 100; s++) {
+            System.out.print(x[s] + ", ");
+
+        }
+
+    
+        
+        
+        
+        
+        
         try {
             // TODO code application logic here
             new Exercici4();
@@ -49,6 +65,7 @@ public class Exercici4 {
 
     private Exercici4() throws CuaEmptyException, PilaEmptyException, CuaFullException, PilaFullException {
         testCua();
+        
     }
 
     private void testCua() throws CuaEmptyException, PilaEmptyException, CuaFullException, PilaFullException {
@@ -119,7 +136,7 @@ public class Exercici4 {
         });
     }
 
-    private void ordenarComparable(Comparable[] elems) {
+    private Comparable[] ordenarComparable(Comparable[] elems) {
        
         boolean canvis = true;
         Comparable temp ;
@@ -139,17 +156,53 @@ public class Exercici4 {
 
         }
        
-
+return elems;
     }
+    
+   public Integer[] puntsInicials(int numPunts) {//aquest metode crea un array de nombres desordenats
+        int i = 0;
+        boolean iguals = false;
+        Integer[] inicials = new Integer[numPunts];
+        Random ale = new Random();
+        inicials[0] = ale.nextInt(numPunts);
+        int num;
+        for (i = 1; i < numPunts; i++) {
+            int z = 0;
 
-    private <T> void ordenarComparator(T[] elems, Comparator<T> comp) {
+            num = ale.nextInt(numPunts);
+            while (z < i && iguals == false) {
+
+                if (inicials[z] == num) {
+                    iguals = true;
+                }
+                z++;
+            }
+            if (iguals) {
+                i--;
+            } else {
+                inicials[i] = num;
+            }
+            iguals = false;
+
+        }
+        for (int s = 0; s < numPunts; s++) {
+            System.out.print(inicials[s] + ", ");
+
+        }
+        System.out.println(" ");
+        return inicials;
+
+    }  
+    
+
+    private <T> T[] ordenarComparator(T[] elems, Comparator<T> comp) {
          boolean canvis = true;
         T temp ;
         while (canvis == true) {
             canvis = false;
             for (int y = 0; y < elems.length; y++) {
                 if ((y + 1 != elems.length)) {
-                    if (1==comp.compare(elems[y], elems[y+1])) {
+                    if (-1==comp.compare(elems[y], elems[y+1])) {
                         temp = elems[y];
                         elems[y] = elems[y + 1];
                         elems[y + 1] = temp;
@@ -160,6 +213,7 @@ public class Exercici4 {
             }
 
         }
+        return elems;
 
     }
 
