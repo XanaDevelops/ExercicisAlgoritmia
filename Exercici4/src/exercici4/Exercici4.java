@@ -120,11 +120,46 @@ public class Exercici4 {
     }
 
     private void ordenarComparable(Comparable[] elems) {
-        //<T extends Comparable<? super T>>
+       
+        boolean canvis = true;
+        Comparable temp ;
+        while (canvis == true) {
+            canvis = false;
+            for (int y = 0; y < elems.length; y++) {
+                if ((y + 1 != elems.length)) {
+                    if (1==elems[y].compareTo(elems[y+1])) {
+                        temp = elems[y];
+                        elems[y] = elems[y + 1];
+                        elems[y + 1] = temp;
+                        canvis = true;
+
+                    }
+                }
+            }
+
+        }
+       
 
     }
 
     private <T> void ordenarComparator(T[] elems, Comparator<T> comp) {
+         boolean canvis = true;
+        T temp ;
+        while (canvis == true) {
+            canvis = false;
+            for (int y = 0; y < elems.length; y++) {
+                if ((y + 1 != elems.length)) {
+                    if (1==comp.compare(elems[y], elems[y+1])) {
+                        temp = elems[y];
+                        elems[y] = elems[y + 1];
+                        elems[y + 1] = temp;
+                        canvis = true;
+
+                    }
+                }
+            }
+
+        }
 
     }
 
