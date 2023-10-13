@@ -42,5 +42,11 @@ public class Professor extends Persona {
         return "Professor{" + "area=" + area + ", sou=" + sou + '}';
     }
     
-    
+    @Override
+    public int compareTo(Persona obj){
+        if(!(obj instanceof Professor)){
+            return super.compareTo(obj);
+        }
+        return 0;  
+    }
 }

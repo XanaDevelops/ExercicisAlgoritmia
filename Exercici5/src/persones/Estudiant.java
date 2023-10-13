@@ -53,5 +53,13 @@ public class Estudiant extends Persona {
         return "Estudiant{" + "programa=" + programa + ", curs=" + curs + ", quota=" + quota + '}';
     }
     
+    @Override
+    public int compareTo(Persona obj){
+        if(!(obj instanceof Estudiant)){
+            return super.compareTo(obj);
+        }
+        return 0;  
+    }
+    
     
 }
