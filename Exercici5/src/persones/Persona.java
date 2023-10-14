@@ -8,7 +8,8 @@ package persones;
  *
  * @author daniel
  */
-public class Persona implements Comparable<Persona>{
+public class Persona implements Comparable<Persona> {
+
     protected String nom;
     protected String adress;
 
@@ -40,14 +41,11 @@ public class Persona implements Comparable<Persona>{
 
     @Override
     public int compareTo(Persona o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getNom().compareTo(o.getNom());
     }
 
     public boolean equals(Persona obj) {
-        return false; //TODO
+        return this.compareTo(obj) == 0; 
     }
-    
-    
-    
-    
+
 }

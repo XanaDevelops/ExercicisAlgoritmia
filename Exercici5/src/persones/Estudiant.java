@@ -14,7 +14,7 @@ public class Estudiant extends Persona {
     protected int curs, quota;
 
     public enum Programes {
-        Informatica
+        Informatica, Tecnologia
     }
 
     public Estudiant(String nom, String adress, Programes programa, int curs, int quota) {
@@ -58,7 +58,12 @@ public class Estudiant extends Persona {
         if (!(obj instanceof Estudiant)) {
             return super.compareTo(obj);
         }
-        return 0;
+        Estudiant objE = (Estudiant)obj;
+        if (this.programa.equals(objE.programa)) {
+            return this.nom.compareTo(objE.getNom());
+        } else {
+            return this.programa.toString().compareTo(objE.getPrograma().toString());
+        }
     }
 
 }

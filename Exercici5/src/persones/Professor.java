@@ -48,6 +48,11 @@ public class Professor extends Persona {
         if (!(obj instanceof Professor)) {
             return super.compareTo(obj);
         }
-        return 0;
+        Professor objP = (Professor)obj;
+        if (this.area.equals(objP.area)) {
+            return this.nom.compareTo(objP.nom);
+        } else {
+            return this.area.toString().compareTo(objP.getArea().toString());
+        }
     }
 }

@@ -19,44 +19,80 @@ import persones.Professor.Areas;
 public class Exercici5 {
 
     private static final int N = 10;  //CAMBIAR A 10^6!!!!
-    
+
+    private Persona[] pers;
+    private Professor[] prof;
+    private Estudiant[] estud;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Exercici5 ex5 = new Exercici5();
-        Persona[] pers = ex5.generadorPersones(N);
-        
-        System.out.println(Arrays.toString(pers));
+        ex5.pers = ex5.generadorPersones(N);
+
+        Arrays.sort(ex5.pers);
+        Arrays.sort(ex5.prof);
+        Arrays.sort(ex5.estud);
+
+        System.out.println(Arrays.toString(ex5.pers));
     }
-    
-    private Persona[] generadorPersones(int n){
-        Persona[] p = new Persona[n];
-        
-        for(int i=0;i<n;i++){
-            p[i] = genRandP();
+
+    private Persona[] generadorPersones(int n) {
+        Persona[] pers = new Persona[n];
+
+        for (int i = 0; i < n; i++) {
+            pers[i] = genRandP();
         }
-        
-        return p;
+
+        return pers;
     }
-    
-    private Persona genRandP(){
+
+    private Persona genRandP() {
         Random r = new Random();
         Persona p = null;
-        switch(r.nextInt(3)){
+        switch (r.nextInt(3)) {
             case 0:
-                p = new Persona("nom_"+r.nextInt(N*N),"adreça_"+r.nextInt(N*N));
+                p = new Persona("nom_" + r.nextInt(N * N), "adreça_" + r.nextInt(N * N));
                 break;
             case 1:
-                p = new Professor("nomP_"+r.nextInt(N*N), "adreça_"+r.nextInt(N*N),
+                p = new Professor("nomP_" + r.nextInt(N * N), "adreça_" + r.nextInt(N * N),
                         Areas.values()[r.nextInt(Areas.values().length)], r.nextInt(9999999));
                 break;
             case 2:
-                p = new Estudiant("nomA_"+r.nextInt(N*N), "adreça_"+r.nextInt(N*N),
+                p = new Estudiant("nomA_" + r.nextInt(N * N), "adreça_" + r.nextInt(N * N),
                         Programes.values()[r.nextInt(Programes.values().length)], r.nextInt(500), r.nextInt(999999));
                 break;
         }
         return p;
     }
-    
+
+    public void separar() {
+        int numEst = 0;
+        int numProf = 0;
+        for (int i = 0; i < N; i++) {
+            if (pers[i] instanceof Estudiant) {
+                numEst++;
+            } else if (pers[i] instanceof Professor) {
+                numProf++;
+            }
+
+        }
+        this.prof = new Professor[numProf];
+        this.estud = new Estudiant[numEst];
+        numEst = 0;
+        numProf = 0;
+        for (int i = 0; i < N; i++) {
+            if (pers[i] instanceof Estudiant) {
+                estud[numEst] = (Estudiant) pers[i];
+                numEst++;
+            } else if (pers[i] instanceof Professor) {
+                prof[numProf] = (Professor) pers[i];
+                numProf++;
+            }
+
+        }
+
+    }
+
 }
