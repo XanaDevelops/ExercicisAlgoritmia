@@ -50,7 +50,7 @@ public class Estudiant extends Persona {
 
     @Override
     public String toString() {
-        return "Estudiant{" + "programa=" + programa + ", curs=" + curs + ", quota=" + quota + '}';
+        return "Estudiant{" + "nom=" + nom + ", adress=" + adress + ", programa=" + programa + ", curs=" + curs + ", quota=" + quota + '}';
     }
 
     @Override

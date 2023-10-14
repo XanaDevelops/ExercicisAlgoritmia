@@ -4,6 +4,7 @@
  */
 package exercici5;
 
+import java.util.Arrays;
 import java.util.Random;
 import persones.Estudiant;
 import persones.Estudiant.Programes;
@@ -25,6 +26,8 @@ public class Exercici5 {
     public static void main(String[] args) {
         Exercici5 ex5 = new Exercici5();
         Persona[] pers = ex5.generadorPersones(N);
+        
+        System.out.println(Arrays.toString(pers));
     }
     
     private Persona[] generadorPersones(int n){
@@ -40,17 +43,18 @@ public class Exercici5 {
     private Persona genRandP(){
         Random r = new Random();
         Persona p = null;
-        switch(r.nextInt(2)){
+        switch(r.nextInt(3)){
             case 0:
                 p = new Persona("nom_"+r.nextInt(N*N),"adreça_"+r.nextInt(N*N));
                 break;
             case 1:
-                p = new Professor("nomP_"+r.nextInt(N*N), "adreça_"+r.nextInt(),
+                p = new Professor("nomP_"+r.nextInt(N*N), "adreça_"+r.nextInt(N*N),
                         Areas.values()[r.nextInt(Areas.values().length)], r.nextInt(9999999));
                 break;
             case 2:
-                p = new Estudiant("nomA_"+r.nextInt(N*N), "adreça_"+r.nextInt(),
+                p = new Estudiant("nomA_"+r.nextInt(N*N), "adreça_"+r.nextInt(N*N),
                         Programes.values()[r.nextInt(Programes.values().length)], r.nextInt(500), r.nextInt(999999));
+                break;
         }
         return p;
     }

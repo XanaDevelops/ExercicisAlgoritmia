@@ -40,7 +40,7 @@ public class Professor extends Persona {
 
     @Override
     public String toString() {
-        return "Professor{" + "area=" + area + ", sou=" + sou + '}';
+        return "Professor{" + "nom=" + nom + ", adress=" + adress + ", area=" + area + ", sou=" + sou + '}';
     }
 
     @Override
