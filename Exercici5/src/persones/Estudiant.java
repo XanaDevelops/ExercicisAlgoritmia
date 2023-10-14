@@ -8,16 +8,16 @@ package persones;
  *
  * @author daniel
  */
-enum Programes{
-    Informatica
-}
-
 public class Estudiant extends Persona {
-    
+
     protected Programes programa;
     protected int curs, quota;
 
-    public Estudiant(Programes programa, int curs, int quota, String nom, String adress) {
+    public enum Programes {
+        Informatica
+    }
+
+    public Estudiant(String nom, String adress, Programes programa, int curs, int quota) {
         super(nom, adress);
         this.programa = programa;
         this.curs = curs;
@@ -52,14 +52,13 @@ public class Estudiant extends Persona {
     public String toString() {
         return "Estudiant{" + "programa=" + programa + ", curs=" + curs + ", quota=" + quota + '}';
     }
-    
+
     @Override
-    public int compareTo(Persona obj){
-        if(!(obj instanceof Estudiant)){
+    public int compareTo(Persona obj) {
+        if (!(obj instanceof Estudiant)) {
             return super.compareTo(obj);
         }
-        return 0;  
+        return 0;
     }
-    
-    
+
 }

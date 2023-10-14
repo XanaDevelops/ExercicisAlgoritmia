@@ -8,14 +8,15 @@ package persones;
  *
  * @author daniel
  */
-enum Areas{
-    Area1
-}
 public class Professor extends Persona {
+
+    public enum Areas {
+        Area1
+    }
     protected Areas area;
     protected int sou;
 
-    public Professor(Areas area, int sou, String nom, String adress) {
+    public Professor(String nom, String adress, Areas area, int sou) {
         super(nom, adress);
         this.area = area;
         this.sou = sou;
@@ -41,12 +42,12 @@ public class Professor extends Persona {
     public String toString() {
         return "Professor{" + "area=" + area + ", sou=" + sou + '}';
     }
-    
+
     @Override
-    public int compareTo(Persona obj){
-        if(!(obj instanceof Professor)){
+    public int compareTo(Persona obj) {
+        if (!(obj instanceof Professor)) {
             return super.compareTo(obj);
         }
-        return 0;  
+        return 0;
     }
 }
