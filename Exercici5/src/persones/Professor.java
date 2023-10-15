@@ -5,20 +5,32 @@
 package persones;
 
 /**
- *
+ * Classe que representa un Professor
+ * 
+ * @see Persona
  * @author daniel
  */
 public class Professor extends Persona {
 
     /**
-     *
+     * Arees dels Professors
      */
     public enum Areas {
 
         /**
          *
          */
-        Area1
+        Area1,
+        
+        /**
+         *
+         */
+        Area2,
+        
+        /**
+         *
+         */
+        Area3
     }
 
     /**
@@ -90,16 +102,11 @@ public class Professor extends Persona {
      * @param obj perametre de classe Persone que es comparara amb l'objecte del cual es crida aques metode
      * @return int aquest perametre de retorna 1 si el objecte que crida el metode es major,0 si son iguals y -1 ai es mes petit
      */
-    @Override
-    public int compareTo(Persona obj) {
-        if (!(obj instanceof Professor)) {
-            return super.compareTo(obj);
-        }
-        Professor objP = (Professor)obj;
-        if (this.area.equals(objP.area)) {
-            return this.nom.compareTo(objP.nom);
+    public int compareTo(Professor obj) {
+        if (this.area.equals(obj.area)) {
+            return this.nom.compareTo(obj.nom);
         } else {
-            return this.area.toString().compareTo(objP.getArea().toString());
+            return this.area.toString().compareTo(obj.getArea().toString());
         }
     }
 }

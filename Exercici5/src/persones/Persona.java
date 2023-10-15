@@ -5,10 +5,11 @@
 package persones;
 
 /**
- *
+ * Classe que representa una Persona
+ * 
  * @author daniel
  */
-public class Persona implements Comparable<Persona> {
+public class Persona {
 
     /**
      *Aquesta variable conte el nom de la persona
@@ -78,8 +79,8 @@ public class Persona implements Comparable<Persona> {
      * @param o parametre de classe Persona que es comparara amb l'objecte del qual es crida aquest metode
      * @return int aquest parametre  retorna 1 si el objecte que crida el metode es major,0 si son iguals y -1 si es mes petit
      */
-    @Override
     public int compareTo(Persona o) {
+        
         return this.getNom().compareTo(o.getNom());
     }
 

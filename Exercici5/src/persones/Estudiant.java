@@ -5,7 +5,9 @@
 package persones;
 
 /**
- *
+ * Classe que representa un Estudiant
+ * 
+ * @see Persona
  * @author daniel
  */
 public class Estudiant extends Persona {
@@ -18,15 +20,15 @@ public class Estudiant extends Persona {
     /**
      *Aquesta variable es un int que conte el curs en el qual es troba el estudiant 
      */
-    protected int curs,
+    protected int curs;
 
     /**
      *Aquesta variable es un int que conte la quantitad de doblers de la quota que paga per cursar el curs
      */
-    quota;
+    protected int quota;
 
     /**
-     *
+     * Programes dels Estudiants
      */
     public enum Programes {
 
@@ -38,7 +40,11 @@ public class Estudiant extends Persona {
         /**
          *
          */
-        Tecnologia
+        Tecnologia,
+        /**
+         * 
+         */
+        Matematiques
     }
 
     /**
@@ -118,16 +124,11 @@ public class Estudiant extends Persona {
      * @param obj perametre de classe Persona que es comparara amb l'objecte del cual es crida aquest metode
      * @return int aquest parametre  retorna 1 si el objecte que crida el metode es major,0 si son iguals y -1 si és mes petit
      */ 
-    @Override
-    public int compareTo(Persona obj) {
-        if (!(obj instanceof Estudiant)) {
-            return super.compareTo(obj);
-        }
-        Estudiant objE = (Estudiant)obj;
-        if (this.programa.equals(objE.programa)) {
-            return this.nom.compareTo(objE.getNom());
+    public int compareTo(Estudiant obj) {
+        if (this.programa.equals(obj.programa)) {
+            return this.nom.compareTo(obj.getNom());
         } else {
-            return this.programa.toString().compareTo(objE.getPrograma().toString());
+            return this.programa.toString().compareTo(obj.getPrograma().toString());
         }
     }
 
