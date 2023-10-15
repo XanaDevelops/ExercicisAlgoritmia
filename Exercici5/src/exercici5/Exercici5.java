@@ -30,12 +30,14 @@ public class Exercici5 {
     public static void main(String[] args) {
         Exercici5 ex5 = new Exercici5();
         ex5.pers = ex5.generadorPersones(N);
-
+        ex5.separar();
         Arrays.sort(ex5.pers);
         Arrays.sort(ex5.prof);
         Arrays.sort(ex5.estud);
 
         System.out.println(Arrays.toString(ex5.pers));
+        System.out.println(Arrays.toString(ex5.prof));
+        System.out.println(Arrays.toString(ex5.estud));
     }
 
     private Persona[] generadorPersones(int n) {
@@ -67,7 +69,8 @@ public class Exercici5 {
         return p;
     }
 
-    public void separar() {
+   
+    private void separar() {
         int numEst = 0;
         int numProf = 0;
         for (int i = 0; i < N; i++) {
