@@ -10,7 +10,8 @@ import LlistaOrdenada.Node;
 /**
  *
  * @author danie
- * @param <E>
+ * @param <E> Tipus d'element
+ * @see Node
  */
 public class LlistaOrdre<E extends Comparable<E>> implements LlistaOrdenada<E> {
 
@@ -29,7 +30,7 @@ public class LlistaOrdre<E extends Comparable<E>> implements LlistaOrdenada<E> {
      * Afegeix un Element a la llista. Després s'ordena per l'ordre natural Pre:
      * Element no null Post: Llista ordenada amb l'element O(n)
      *
-     * @param e
+     * @param e Element a afegir
      */
     @Override
     public void add(E e) {
@@ -93,7 +94,7 @@ public class LlistaOrdre<E extends Comparable<E>> implements LlistaOrdenada<E> {
     /**
      * Pre: Cap Post: true si existeix al manco un element, sino false O(1)
      *
-     * @return
+     * @return si esta buit
      */
     @Override
     public boolean isEmpty() {

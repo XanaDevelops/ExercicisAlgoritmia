@@ -17,34 +17,20 @@ public class Exercici7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-                LListaCursor<Integer> llist = new LListaCursor(5, Integer.class);
+        LListaCursor<Integer> llist = new LListaCursor(5, Integer.class);
         llist.add(2);
         llist.add(3);
 
         llist.add(7);
 
         llist.add(4);
-        
+
         llist.remove(7);
         llist.add(5);
         llist.add(6);
         llist.imprimir();
         llist.add(8);
-         
-        testDaniel();
+
     }
-    
-    
-    private static void testDaniel(){
-        LlistaOrdre<Integer> l = new LlistaOrdre<>();
-        l.add(2);
-        l.add(4);
-        l.add(6);
-        System.out.println("\nL:\n"+l);
-        l.add(3);
-        System.out.println("\nL:\n"+l);
-        l.add(1);
-        System.out.println("\nL:\n"+l);
-    }
-    
+
 }

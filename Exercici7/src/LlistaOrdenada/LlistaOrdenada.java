@@ -7,7 +7,7 @@ package LlistaOrdenada;
 /**
  *
  * @author trufi
- * @param <E>
+ * @param <E> Tipus element
  */
 public interface LlistaOrdenada <E extends Comparable<E>>{
     public void add(E e);
