@@ -15,10 +15,17 @@ import LlistaOrdenada.Node;
 public class LlistaOrdre<E extends Comparable<E>> implements LlistaOrdenada<E> {
     private Node<E> first;
     
+    /**
+     *
+     */
     public LlistaOrdre(){
         first = null;
     }
     
+    /**
+     *
+     * @param e
+     */
     @Override
     public void add(E e) {
         Node<E> node = new Node<>(e);
@@ -51,26 +58,46 @@ public class LlistaOrdre<E extends Comparable<E>> implements LlistaOrdenada<E> {
         
     }
 
+    /**
+     *
+     */
     @Override
     public void clear() {
         first = null;
     }
 
+    /**
+     *
+     * @param e
+     * @return
+     */
     @Override
     public boolean contains(E e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isEmpty() {
         return first==null;
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void remove(E e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString(){
         String s = "";
