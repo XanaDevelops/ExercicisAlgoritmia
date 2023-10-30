@@ -7,9 +7,10 @@ package LlistaOrdenada;
 /**
  *
  * @author danie
+ * @param <E>
  */
-public class Node<E extends Comparable<E>> implements Comparable<E>{
-    private E elem;
+public class Node<E extends Comparable<E>> implements Comparable<Node<E>>{
+    private final E elem;
     
     private Node<E> prev;
     private Node<E> next;
@@ -39,7 +40,7 @@ public class Node<E extends Comparable<E>> implements Comparable<E>{
     }
 
     @Override
-    public int compareTo(E o) {
-        return this.elem.compareTo(o);
+    public int compareTo(Node<E> o) {
+        return this.elem.compareTo(o.getElem());
     }
 }

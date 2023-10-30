@@ -5,6 +5,7 @@
 package exercici7;
 
 import LlistaOrdenada.cursor.LListaCursor;
+import LlistaOrdenada.refs.LlistaOrdre;
 
 /**
  *
@@ -28,6 +29,21 @@ public class Exercici7 {
         llist.add(5);
         llist.add(6);
         llist.add(8);
+        
+        testDaniel();
+    }
+    
+    
+    private static void testDaniel(){
+        LlistaOrdre<Integer> l = new LlistaOrdre<>();
+        l.add(2);
+        l.add(4);
+        l.add(6);
+        System.out.println("\nL:\n"+l);
+        l.add(3);
+        System.out.println("\nL:\n"+l);
+        l.add(1);
+        System.out.println("\nL:\n"+l);
     }
     
 }
