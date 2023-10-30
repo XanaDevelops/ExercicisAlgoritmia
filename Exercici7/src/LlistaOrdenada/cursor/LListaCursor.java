@@ -47,7 +47,7 @@ public class LListaCursor<E extends Comparable<E>> implements LlistaOrdenada<E> 
      * despres de haver acabat i que el punter next del element free anterior
      * apunti en aquest nou element o que si la llista es plena se mos indici
      * mitjançant un missatge
-     *
+     **nCom=an+s
      * @param e element que es vol inserir
      */
     @Override
@@ -107,7 +107,7 @@ public class LListaCursor<E extends Comparable<E>> implements LlistaOrdenada<E> 
      * precondicio es que el element sigui del mateix tipus que els elements de
      * la llista la postcondicio es que torni fals si no es troba el element i
      * vartader si es troba
-     *
+     *nCom=an+s
      * @param e aquest parametre es el objecte a cercar
      * @return un boolea que ens diu si el element es troba o no
      */
@@ -128,7 +128,7 @@ public class LListaCursor<E extends Comparable<E>> implements LlistaOrdenada<E> 
 
     /**
      * Aquest metode ens diu si la llista esta plena
-     *
+     **nCom=s
      * @return
      */
     @Override
@@ -183,17 +183,18 @@ public class LListaCursor<E extends Comparable<E>> implements LlistaOrdenada<E> 
 
     }
 
- public void imprimir(){
+ public String toString(){
+  String s="";   
  int i = first;
-  System.out.print(data[first]+","); 
+  s=s+data[first].toString()+","; 
             while (next[i] != -1 ) {
-              System.out.print(data[next[i]]+",");  
+              s=s+data[next[i]].toString()+",";
                 i = next[i];
             }
  
  
  System.out.println(); 
- 
+ return s;
  }   
     
     

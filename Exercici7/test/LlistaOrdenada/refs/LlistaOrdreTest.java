@@ -4,6 +4,7 @@
  */
 package LlistaOrdenada.refs;
 
+import LlistaOrdenada.cursor.LListaCursor;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -138,5 +139,43 @@ public class LlistaOrdreTest {
     }
 
    
+    
+    
+    @Test
+    public void testContains2() {
+        System.out.println("contains2");
+         LListaCursor<Integer> instance = new LListaCursor(3, Integer.class);
+        instance.add(3);
+        instance.add(1);
+        instance.add(9);
+        boolean result = instance.contains(3);
+        assertEquals(true, result);
+        assertTrue(!instance.contains(0));
+    }
+
+    /**
+     * Test of isEmpty method, of class LlistaOrdre.
+     */
+    @Test
+    public void testIsEmpty2() {
+        System.out.println("isEmpty2");
+         LListaCursor<Integer> instance = new LListaCursor(3, Integer.class);
+        instance.add(3);
+        instance.add(1);
+        instance.add(9);
+        
+        boolean expResult = true;
+        boolean result = instance.isEmpty();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of remove method, of class LlistaOrdre.
+     */
+    
+      
+    
+    
     
 }

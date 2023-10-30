@@ -28,7 +28,8 @@ public class Exercici7 {
         llist.remove(7);
         llist.add(5);
         llist.add(6);
-        llist.imprimir();
+       String s= llist.toString();
+       System.out.println(s);
         llist.add(8);
 
     }
