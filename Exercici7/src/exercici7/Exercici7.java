@@ -18,18 +18,19 @@ public class Exercici7 {
      */
     public static void main(String[] args) {
                 LListaCursor<Integer> llist = new LListaCursor(5, Integer.class);
-        llist.add(3);
         llist.add(2);
+        llist.add(3);
 
         llist.add(7);
 
         llist.add(4);
-        llist.remove(3);
+        
         llist.remove(7);
         llist.add(5);
         llist.add(6);
+        llist.imprimir();
         llist.add(8);
-        
+         
         testDaniel();
     }
     
