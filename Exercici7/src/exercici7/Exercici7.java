@@ -4,6 +4,8 @@
  */
 package exercici7;
 
+import LlistaOrdenada.cursor.LListaCursor;
+
 /**
  *
  * @author daniel
@@ -14,7 +16,18 @@ public class Exercici7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+                LListaCursor<Integer> llist = new LListaCursor(5, Integer.class);
+        llist.add(3);
+        llist.add(2);
+
+        llist.add(7);
+
+        llist.add(4);
+        llist.remove(3);
+        llist.remove(7);
+        llist.add(5);
+        llist.add(6);
+        llist.add(8);
     }
     
 }
