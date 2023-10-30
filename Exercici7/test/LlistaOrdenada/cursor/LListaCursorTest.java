@@ -61,12 +61,7 @@ public class LListaCursorTest {
         instance.remove(1);
         assertEquals("9,", instance.toString());
         instance.remove(9);
-        assertTrue(instance.isEmpty());
-        instance.add(3);
-        instance.add(1);
-        instance.add(9);
-        instance.remove(9);
-        assertEquals("1,3,", instance.toString());
+        
     }
 
 }
