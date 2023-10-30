@@ -34,7 +34,7 @@ public class Exercici6 {
      * @param elems array de elementos ordenado 
      * @return int que indica la posicion del elemento , si este es -1 significa que el elemento que se busca esta fuera del array
      */
-    public  static<E extends Comparable<E>> int binarySearch(E elem, E[] elems){
+    public static<E extends Comparable<E>> int binarySearch(E elem, E[] elems){
         if(elem==null || elems==null){
           throw new NullPointerException();   
         }
