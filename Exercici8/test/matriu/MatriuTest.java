@@ -46,6 +46,8 @@ public class MatriuTest {
         m.set(2,1,0);
         m.set(3,0,1);
         m.set(4,1,1);
+        System.out.println(m);
+        m.get(0,0);
     }
     
     /**
