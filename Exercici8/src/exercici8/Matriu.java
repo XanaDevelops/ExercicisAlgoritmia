@@ -4,28 +4,34 @@
  */
 package exercici8;
 
+import java.lang.reflect.Array;
+
 /**
  *
  * @author daniel
+ * @param <T>
  * @param <E>
  */
-public class Matriu<E extends Number>  {
-    private int w,h;
-    private E[] matriu;
+public class Matriu<T extends Number>  {
+    private final int w;
+    private final int h;
+    private final T[] matriu;
     
-    public Matriu(int w, int h){
-        
+    public Matriu(int w, int h, Class<T> type){
+        this.w = w;
+        this.h = h;
+        matriu = (T[])Array.newInstance(type, w*h);
     }
     
-    public void set(E value, int w, int h){
+    public void set(T value, int w, int h){
         matriu[w*h+w] = value;
     }
     
-    public E get(int w, int h){
+    public T get(int w, int h){
         return matriu[w*h+w];
     }
     
-    public Matriu<E> mult(Matriu<E> m){
+    public Matriu<T> mult(Matriu<T> m){
         return null;
     }
 }
