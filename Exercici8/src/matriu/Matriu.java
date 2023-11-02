@@ -6,11 +6,12 @@ package matriu;
 
 import java.lang.reflect.Array;
 
+import matriu.excepciones.NoMultiplicable;
+
 /**
  *
  * @author daniel
  * @param <T>
- * @param <E>
  */
 public class Matriu<T extends Number>  {
     private final int w;
@@ -22,6 +23,18 @@ public class Matriu<T extends Number>  {
         this.h = h;
         matriu = (T[])Array.newInstance(type, w*h);
     }
+
+    public int getW() {
+        return w;
+    }
+
+    public int getH() {
+        return h;
+    }
+    
+    
+    
+    
     
     public void set(T value, int w, int h){
         matriu[w*h+w] = value;
@@ -31,7 +44,13 @@ public class Matriu<T extends Number>  {
         return matriu[w*h+w];
     }
     
-    public Matriu<T> mult(Matriu<T> m){
-        return null;
+    public Matriu<T> mult(Matriu<T> m) throws NoMultiplicable{
+      if(w!=m.getH()) {
+         throw new NoMultiplicable(); 
+          
+      }
+        
+        
+    return null;  
     }
 }
