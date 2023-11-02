@@ -36,12 +36,18 @@ public class Matriu<T extends Number>  {
     
     
     
-    public void set(T value, int w, int h){
-        matriu[w*h+w] = value;
+    public void set(T value, int x, int y){
+        if(x<0 || y<0 || x>=w || y>=h){
+            throw new IllegalArgumentException ();
+        }
+        matriu[w*y+x] = value;
     }
     
-    public T get(int w, int h){
-        return matriu[w*h+w];
+    public T get(int x, int y){
+        if(x<0 || y<0 || x>=w || y>=h){
+            throw new IllegalArgumentException ();
+        }
+        return matriu[w*y+x];
     }
     
     public Matriu<T> mult(Matriu<T> m) throws NoMultiplicable{
