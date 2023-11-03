@@ -45,8 +45,6 @@ public class Matriu<T extends Number> {
         if (x < 0 || y < 0 || x >= w || y >= h) {
             throw new IllegalArgumentException();
         }
-        T a = (T)BigDecimal.valueOf(matriu[0].doubleValue()).add(BigDecimal.valueOf(matriu[1].doubleValue()));
-        System.out.println(a);
         return matriu[w * y + x];
     }
 
@@ -57,6 +55,22 @@ public class Matriu<T extends Number> {
         }
 
         return null;
+    }
+    
+    private BigDecimal suma(T a, T b){
+        return BigDecimal.valueOf(a.doubleValue()).add(BigDecimal.valueOf(b.doubleValue()));
+    }
+    
+    private BigDecimal resta(T a, T b){
+        return BigDecimal.valueOf(a.doubleValue()).subtract(BigDecimal.valueOf(b.doubleValue()));
+    }
+    
+    private BigDecimal mult(T a, T b){
+        return BigDecimal.valueOf(a.doubleValue()).multiply(BigDecimal.valueOf(b.doubleValue()));
+    }
+    
+    private BigDecimal div(T a, T b){
+        return BigDecimal.valueOf(a.doubleValue()).divide(BigDecimal.valueOf(b.doubleValue()));
     }
     
     @Override
