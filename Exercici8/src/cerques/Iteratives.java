@@ -10,6 +10,16 @@ package cerques;
  */
 public class Iteratives {
 
+    /**
+     * Cerca lineal iterativa
+     * @pre: elements no nuls ordenats
+     * @post: index element o -1
+     * @ord O(n) al ser lineal
+     * @param <E> tipues element
+     * @param elem  element a cercar
+     * @param elems array de elements
+     * @return index element o -1 si no
+     */
     public static <E extends Comparable<E>> CResult cLineal(E elem, E[] elems) {
         if (elem == null || elems == null) {
             throw new NullPointerException();
@@ -26,6 +36,16 @@ public class Iteratives {
         return new CResult(-1, i+1);
     }
 
+    /**
+     * Cerca binaria iterativa
+     * @pre elements no nulls ordenats
+     * @post: index element o -1
+     * @ord O(log(n)) per dividir per 2 els elements per iteracio
+     * @param <E> tipues element
+     * @param elem  element a cercar
+     * @param elems array de elements
+     * @return index element o -1 si no
+     */
     public static <E extends Comparable<E>> CResult cBinaria(E elem, E[] elems) {
         if (elem == null || elems == null) {
             throw new NullPointerException();

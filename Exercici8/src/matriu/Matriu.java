@@ -114,9 +114,11 @@ public class Matriu<T extends Number> {
     }
 
     /**
-     * Aquest metode multiplica la matriu de la classe especifica amb una altre instancia de la classe el seu ordre de complexitat es n**3
-     *
-     * @param m Matriu b 
+     * Aquest metode multiplica la matriu de la cla
+     * @pre Matriu amb mida valida
+     * @post matriu resultant
+     * @ord O(n^3) per els 3 fors aninats
+     * @param m Matriu b
      * @return  Matriu resultant
      * @throws NoMultiplicable
      */

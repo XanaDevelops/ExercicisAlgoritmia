@@ -25,12 +25,21 @@ public class RecursivesTest {
     private static final int[] TESTS = {TEST1, TEST2, TEST3};
     private static final int[] SOLS = {TEST1, TEST2, -1};
 
+    /**
+     *
+     */
     @Rule
     public ExpectedException stackOV = ExpectedException.none();
 
+    /**
+     *
+     */
     public RecursivesTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         for (int i = 0; i < array.length; i++) {
@@ -38,16 +47,25 @@ public class RecursivesTest {
         }
     }
 
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         stackOV = ExpectedException.none();
 
     }
 
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
@@ -63,12 +81,16 @@ public class RecursivesTest {
         System.out.println("Accessos: "+cr.getAccess());
         
     }
-    @Test
+    
+    /**
+     *
+     */
+    @Test(expected = StackOverflowError.class)
     public void testCLinealStackOverflow(){
-        stackOV.expect(StackOverflowError.class);
         CResult cr;
         for (int i = 1; i < TESTS.length; i++) {
             System.out.println(i);
+            stackOV.expect(StackOverflowError.class);
             cr = Recursives.cLineal(TESTS[i], array);
             assertEquals(SOLS[i], cr.getResult());
         }

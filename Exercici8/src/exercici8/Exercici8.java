@@ -16,6 +16,7 @@ public class Exercici8 {
 
     /**
      * @param args the command line arguments
+     * @throws matriu.excepciones.DimensionNoAdecuada
      */
     public static void main(String[] args) throws DimensionNoAdecuada {
        

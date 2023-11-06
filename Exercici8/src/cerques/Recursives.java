@@ -10,6 +10,16 @@ package cerques;
  */
 public class Recursives {
 
+    /**
+     * Cerca lineal recursiva
+     * @pre elements no nulls ordenats
+     * @post: index element o -1
+     * @ord O(n) al ser lineal
+     * @param <E>
+     * @param elem
+     * @param elems
+     * @return
+     */
     public static <E extends Comparable<E>> CResult cLineal(E elem, E[] elems) {
         if (elem == null || elems == null) {
             throw new NullPointerException();
@@ -31,8 +41,16 @@ public class Recursives {
         return cLineal(elem, elems, i+1);
     }
 
-    
-    
+    /**
+     * Cerca binaria recursiva
+     * @pre elements no nulls ordenats
+     * @post: index element o -1
+     * @ord O(log(n)) al dividir per 2 cada recursió
+     * @param <E> tipues element
+     * @param elem  element a cercar
+     * @param elems array de elements
+     * @return index element o -1 si no
+     */
     public static <E extends Comparable<E>> CResult cBinaria(E elem, E[] elems) {
         if (elem == null || elems == null) {
             throw new NullPointerException();

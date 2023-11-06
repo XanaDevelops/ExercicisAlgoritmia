@@ -25,10 +25,15 @@ public class IterativesTest {
     private static final int[] TESTS = {TEST1, TEST2, TEST3};
     private static final int[] SOLS = {TEST1, TEST2, -1};
 
-
+    /**
+     *
+     */
     public IterativesTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
         for (int i = 0; i < array.length; i++) {
@@ -36,15 +41,24 @@ public class IterativesTest {
         }
     }
 
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
 
     }
 
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
