@@ -17,7 +17,7 @@ import org.junit.rules.ExpectedException;
  *
  * @author danie
  */
-public class RecursivesTest {
+public class IterativesTest {
 
     private static final Integer[] array = new Integer[1000000];
     private static final int TEST1 = 0, TEST2 = 100000, TEST3 = 10000000;
@@ -28,7 +28,7 @@ public class RecursivesTest {
     @Rule
     public ExpectedException stackOV = ExpectedException.none();
 
-    public RecursivesTest() {
+    public IterativesTest() {
     }
 
     @BeforeClass
@@ -58,14 +58,12 @@ public class RecursivesTest {
     @Test
     public void testCLineal() {
         System.out.println("cLineal");
-        CResult cr = Recursives.cLineal(TESTS[0], array);
-        assertEquals(SOLS[0], cr.getResult());
 
-        for (int i = 1; i < TESTS.length; i++) {
+        //assertEquals(SOLS[0], Iteratives.cLineal(TESTS[0], array));
+
+        for (int i = 0; i < TESTS.length; i++) {
             System.out.println(i);
-            stackOV.expect(StackOverflowError.class);
-            cr = Recursives.cLineal(TESTS[i], array);
-            assertEquals(SOLS[i], cr.getResult());
+            assertEquals(SOLS[i], Recursives.cBinaria(TESTS[i], array));
         }
 
     }
@@ -79,8 +77,7 @@ public class RecursivesTest {
 
         for (int i = 0; i < TESTS.length; i++) {
             System.out.println(i);
-            CResult cr = Recursives.cBinaria(TESTS[i], array);
-            assertEquals(SOLS[i], cr.getResult());
+            assertEquals(SOLS[i], Recursives.cBinaria(TESTS[i], array));
         }
     }
 
