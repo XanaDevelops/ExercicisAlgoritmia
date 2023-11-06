@@ -25,8 +25,6 @@ public class IterativesTest {
     private static final int[] TESTS = {TEST1, TEST2, TEST3};
     private static final int[] SOLS = {TEST1, TEST2, -1};
 
-    @Rule
-    public ExpectedException stackOV = ExpectedException.none();
 
     public IterativesTest() {
     }
@@ -44,7 +42,6 @@ public class IterativesTest {
 
     @Before
     public void setUp() {
-        stackOV = ExpectedException.none();
 
     }
 
@@ -53,31 +50,33 @@ public class IterativesTest {
     }
 
     /**
-     * Test of cLineal method, of class Recursives.
+     * Test of cLineal method, of class Iteratives.
      */
     @Test
     public void testCLineal() {
         System.out.println("cLineal");
-
-        //assertEquals(SOLS[0], Iteratives.cLineal(TESTS[0], array));
-
+        CResult r;
         for (int i = 0; i < TESTS.length; i++) {
             System.out.println(i);
-            assertEquals(SOLS[i], Recursives.cBinaria(TESTS[i], array));
+            r = Iteratives.cLineal(TESTS[i], array);
+            assertEquals(SOLS[i], r.getResult());
+            System.out.println("Accessos: "+r.getAccess());
         }
 
     }
 
     /**
-     * Test of cBinaria method, of class Recursives.
+     * Test of cBinaria method, of class Iteratives.
      */
     @Test
     public void testCBinaria() {
         System.out.println("cBinaria");
-
+        CResult r;
         for (int i = 0; i < TESTS.length; i++) {
             System.out.println(i);
-            assertEquals(SOLS[i], Recursives.cBinaria(TESTS[i], array));
+            r = Iteratives.cBinaria(TESTS[i], array);
+            assertEquals(SOLS[i], r.getResult());
+            System.out.println("Accessos: "+r.getAccess());
         }
     }
 

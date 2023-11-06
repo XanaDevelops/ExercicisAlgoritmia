@@ -22,7 +22,7 @@ public class CResult {
     }
     
     public void addAccess(){
-        this.access++;
+        this.access+=1;
     }
     
     public int getResult() {

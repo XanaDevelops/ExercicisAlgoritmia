@@ -60,14 +60,18 @@ public class RecursivesTest {
         System.out.println("cLineal");
         CResult cr = Recursives.cLineal(TESTS[0], array);
         assertEquals(SOLS[0], cr.getResult());
-
+        System.out.println("Accessos: "+cr.getAccess());
+        
+    }
+    @Test
+    public void testCLinealStackOverflow(){
+        stackOV.expect(StackOverflowError.class);
+        CResult cr;
         for (int i = 1; i < TESTS.length; i++) {
             System.out.println(i);
-            stackOV.expect(StackOverflowError.class);
             cr = Recursives.cLineal(TESTS[i], array);
             assertEquals(SOLS[i], cr.getResult());
         }
-
     }
 
     /**
@@ -81,6 +85,7 @@ public class RecursivesTest {
             System.out.println(i);
             CResult cr = Recursives.cBinaria(TESTS[i], array);
             assertEquals(SOLS[i], cr.getResult());
+            System.out.println("Accessos: "+cr.getAccess());
         }
     }
 

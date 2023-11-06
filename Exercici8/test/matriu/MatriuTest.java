@@ -4,6 +4,8 @@
  */
 package matriu;
 
+import matriu.excepciones.DimensionNoAdecuada;
+import matriu.excepciones.NoMultiplicable;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -52,10 +54,27 @@ public class MatriuTest {
     
     /**
      * Test of mult method, of class Matriu.
+     * @throws matriu.excepciones.DimensionNoAdecuada
      */
     @Test
-    public void testMult() {
-        assertTrue(true);
+    public void testMult() throws DimensionNoAdecuada {
+        Matriu<Integer> a = new Matriu(3, 3, Integer.class);
+        Integer[] aval = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+        a.actualizarMat(aval);
+        System.out.println(a.toString());
+        Matriu<Integer> b = new Matriu(3, 3, Integer.class);
+        b.actualizarMat(aval);
+        System.out.println(b.toString());
+        Matriu<Integer> c = null;
+        
+        Matriu<Integer> r = new Matriu<>(3,3,Integer.class);
+        r.actualizarMat(new Integer[]{15,18,21,42,54,66,69,90,111});
+        
+        try {
+            c = a.mult(b);
+        } catch (NoMultiplicable e) {
+        }
+        assertEquals(r.toString(), c.toString());
     }
     
 }

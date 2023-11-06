@@ -23,7 +23,7 @@ public class Iteratives {
                 return new CResult(i,i+1);
             }
         }
-        return new CResult(-1, i);
+        return new CResult(-1, i+1);
     }
 
     public static <E extends Comparable<E>> CResult cBinaria(E elem, E[] elems) {

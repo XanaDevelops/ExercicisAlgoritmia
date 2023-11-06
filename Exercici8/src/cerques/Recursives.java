@@ -28,9 +28,11 @@ public class Recursives {
         if (elems[i].compareTo(elem) == 0) {
             return new CResult(i, i+1);
         }
-        return cLineal(elem, elems, i++);
+        return cLineal(elem, elems, i+1);
     }
 
+    
+    
     public static <E extends Comparable<E>> CResult cBinaria(E elem, E[] elems) {
         if (elem == null || elems == null) {
             throw new NullPointerException();
