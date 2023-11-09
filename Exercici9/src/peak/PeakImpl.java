@@ -15,8 +15,10 @@ public class PeakImpl implements Peak {
 
     @Override
     public Point peak(int[] a) {
-        Point p = null;
+        Point p = new Point();
         int r = cBinaria(a);
+        p.x = a[r];
+        p.y = r;
         return p;
     }
 
@@ -52,8 +54,8 @@ public class PeakImpl implements Peak {
         //se podria hacer un switch para hacer solo una comparación
         //int lC = elem.compareTo(elems[m-1]);
         //int rC = elem.compareTo(elems[m+1]);
-        int lC = elems[m-1];
-        int rC = elems[m+1];
+        int lC = elems[m-1]-elem;
+        int rC = elems[m+1]-elem;
         if (lC < 0 && rC <0) {
             return m;
         }
