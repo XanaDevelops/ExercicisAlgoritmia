@@ -1517,6 +1517,9 @@ is divided into following sections:
             </fileset>
             <arg line="${javadoc.endorsed.classpath.cmd.line.arg}"/>
             <arg line="${javadoc.html5.cmd.line.arg}"/>
+            <tag name="pre" scope="all" description="Precondition:"/>
+            <tag name="post" scope="all" description="Postcondition:"/> 
+            <tag name="ord" scope="all" description="Complexity Order"/> 
         </javadoc>
         <copy todir="${dist.javadoc.dir}">
             <fileset dir="${src.dir}" excludes="${excludes}" includes="${includes}">
@@ -1526,6 +1529,7 @@ is divided into following sections:
                 <include name="**/doc-files/**"/>
             </fileset>
         </copy>
+        
     </target>
     <target depends="init,-javadoc-build" if="netbeans.home" name="-javadoc-browse" unless="no.javadoc.preview">
         <nbbrowse file="${dist.javadoc.dir}/index.html"/>

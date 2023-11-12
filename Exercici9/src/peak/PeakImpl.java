@@ -26,10 +26,9 @@ public class PeakImpl implements Peak {
      * Cerca binaria recursiva
      *
      * @pre elements no nulls ordenats
-     * @post: index element o -1
+     * @post index element o -1
      * @ord O(log(n)) al dividir per 2 cada recursió
      * @param <E> tipues element
-     * @param elem element a cercar
      * @param elems array de elements
      * @return index element o -1 si no
      */
