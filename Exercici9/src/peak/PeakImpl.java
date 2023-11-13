@@ -13,6 +13,13 @@ import java.awt.Point;
  */
 public class PeakImpl implements Peak {
 
+    /**
+     * @pre (A.lenght≥3)∧∃!j(A.lenght-1>j>1)∧(∀i:0≤i≤j:Aj>Ai)∧(∀k:A.lenght>K>j:Aj>Ak)
+     * @post ∃!j:A.lenght-1>j>1:(max(A)==Aj)∧(Aj+1>Aj>Aj-1)
+     *Aquest metode retorna al elemnt del cim que estroba dins un arrays de enters 
+     * @param a array que va creixent fins que arriba a un maxim despres decreix fins al final del array 
+     * @return retorna un enter que es el nombre maxim del array 
+     */
     @Override
     public Point peak(int[] a) {
         Point p = new Point();
@@ -26,7 +33,7 @@ public class PeakImpl implements Peak {
      * Cerca binaria recursiva
      *
      * @pre elements no nulls ordenats
-     * @post index element o -1
+     * @post index element 
      * @ord O(log(n)) al dividir per 2 cada recursió
      * @param <E> tipues element
      * @param elems array de elements
