@@ -17,7 +17,7 @@ public class PeakImpl implements Peak {
      * Aquest metode retorna al elemnt del cim que estroba dins un arrays de enters 
      * @pre (A.lenght≥3)∧∃!j(A.lenght-1>j>1)∧(∀i:0≤i≤j:A<sub>j</sub>>A<sub>i</sub>)∧(∀k:A.lenght>k>j:A<sub>j</sub>>A<sub>k</sub>)
      * @post ∃!j:(A.lenght-1>j>1)∧(max(A)==A<sub>j</sub>)∧(A<sub>j</sub>>A<sub>j+1</sub>)∧(A<sub>j</sub>>A<sub>j-1</sub>)
-     * @ord O(log(n)) al dividir per 2 cada recursió <br>
+     * @ord O(log<sub>2</sub>(n)) al dividir per 2 cada recursió i al utilitzar una cerca binaria internament<br>
      * @param a array que va creixent fins que arriba a un maxim despres decreix fins al final del array 
      * @return retorna un Point que conté l'element cim i el seu index, null en cas de conjunt d'elements no vàlids
      */
