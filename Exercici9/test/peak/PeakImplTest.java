@@ -58,6 +58,6 @@ public class PeakImplTest {
         System.out.println("extremEsquerra");
         int[] a = {9,8};
         Peak p = new PeakImpl();
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> p.peak(a));
+        assertEquals(null, p.peak(a));
     } 
 }
