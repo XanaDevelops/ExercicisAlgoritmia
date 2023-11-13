@@ -57,9 +57,7 @@ public class PeakImplTest {
     public void arrayMenor3() {
         System.out.println("extremEsquerra");
         int[] a = {9,8};
-        Point expResult =null;
         Peak p = new PeakImpl();
-        Point result = p.peak(a);
-        assertEquals(expResult, result);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> p.peak(a));
     } 
 }
