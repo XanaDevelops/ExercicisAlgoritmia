@@ -12,12 +12,15 @@ import java.util.Stack;
  * @param <E>
  */
 public interface Hanoi<E extends Comparable<E>>{
-    /**
+   /**
      * Mètode recursiu que resol Hanoi
+     *@pre ∀i (A.lenght> i=>0)∧ (A[i+1]>A[i])∧(B.lenght=0∧C.lenght=0)
+     * @post ∀i (C.lenght> i=>0)∧ (C[i+1]>C[i])∧(A.lenght=0∧B.lenght=0)
+     * @ord  O(2**n )
      * @param h Altura de les torres
-     * @param a torre a
-     * @param b torre b
-     * @param c torre c
+     * @param a torre a pila inicila de hanoi
+     * @param b torre b  pila intermitja de les torres  de Hanoi
+     * @param c torre c  pila final de les torres de hanoi
      */
     public void recursiuHanoi(int h, Stack<E> a,
             Stack<E> b,
@@ -25,10 +28,13 @@ public interface Hanoi<E extends Comparable<E>>{
     
     /**
      * Mètode recursiu que resol Hanoi
+     *@pre ∀i (A.lenght> i=>0)∧ (A[i+1]>A[i])∧(B.lenght=0∧C.lenght=0)
+     * @post ∀i (C.lenght> i=>0)∧ (C[i+1]>C[i])∧(A.lenght=0∧B.lenght=0)
+     * @ord  O(2**n )
      * @param h Altura de les torres
-     * @param a torre a
-     * @param b torre b
-     * @param c torre c
+     * @param a torre a pila inicila de hanoi
+     * @param b torre b  pila intermitja de les torres  de Hanoi
+     * @param c torre c  pila final de les torres de hanoi
      */
     public void iteratiuHanoi(int h, Stack<E> a,
             Stack<E> b,

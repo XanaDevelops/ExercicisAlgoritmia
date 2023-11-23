@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package hanoi;
 
+
 import java.util.Stack;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -33,12 +31,7 @@ public class HanoiImplTest {
         copyAInit = (Stack<Integer>) a.clone();
     }
 
-    /**
-     * Test of recursiuHanoi method, of class HanoiImpl.
-     * Pensau que passi aquest test, no vol dir que el Hanoi funcioni bé,
-     * ja que bastaria que el mètode fes swap(a,c). 
-     * Afegiu nous tests
-     */
+  
     @Test
     public void testRecursiuHanoi() {
         System.out.println("recursiuHanoi");
@@ -51,5 +44,49 @@ public class HanoiImplTest {
         assertEquals(true, b.isEmpty());
         assertEquals(true, c.equals(copyAInit));
     }
+ @Test
+    public void HanoiUnDisco(){
+        
+         a = new Stack();
+        b = new Stack();
+        c = new Stack();
+        h = 1;
+        for (int i = h; i > 0; i--) {
+            a.push(i);
+        }
+        copyAInit = (Stack<Integer>) a.clone();
+         System.out.println("hanoi1disco");
+        assertEquals(true, a.equals(copyAInit));
+        assertEquals(true, b.isEmpty());
+        assertEquals(true, c.isEmpty());
+        Hanoi pHanoi = new HanoiImpl();
+        pHanoi.recursiuHanoi(h, a, b, c);
+        assertEquals(true, a.isEmpty());
+        assertEquals(true, b.isEmpty());
+        assertEquals(true, c.equals(copyAInit));
+    }
+   
+     @Test
+    public void HanoiTresDiscos(){
+        
+         a = new Stack();
+        b = new Stack();
+        c = new Stack();
+        h = 3;
+        for (int i = h; i > 0; i--) {
+            a.push(i);
+        }
+        copyAInit = (Stack<Integer>) a.clone();
+         System.out.println("hanoi3discos");
+        assertEquals(true, a.equals(copyAInit));
+        assertEquals(true, b.isEmpty());
+        assertEquals(true, c.isEmpty());
+        Hanoi pHanoi = new HanoiImpl();
+        pHanoi.recursiuHanoi(h, a, b, c);
+        assertEquals(true, a.isEmpty());
+        assertEquals(true, b.isEmpty());
+        assertEquals(true, c.equals(copyAInit));
+    }
+    
 
 }
