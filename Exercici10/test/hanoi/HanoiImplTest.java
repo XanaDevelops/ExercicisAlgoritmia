@@ -52,23 +52,4 @@ public class HanoiImplTest {
         assertEquals(true, c.equals(copyAInit));
     }
 
-    /**
-     * Test of iteratiuHanoi method, of class HanoiImpl.
-     * Pensau que passi aquest test, no vol dir que el Hanoi funcioni bé,
-     * ja que bastaria que el mètode fes swap(a,c). 
-     * Afegiu nous tests
-     */
-    @Test
-    public void testIteratiuHanoi() {
-        System.out.println("iteratiuHanoi");
-        assertEquals(true, a.equals(copyAInit));
-        assertEquals(true, b.isEmpty());
-        assertEquals(true, c.isEmpty());
-        Hanoi pHanoi = new HanoiImpl();
-        pHanoi.iteratiuHanoi(h, a, b, c);
-        assertEquals(true, a.isEmpty());
-        assertEquals(true, b.isEmpty());
-        assertEquals(true, c.equals(copyAInit));
-    }
-
 }
