@@ -6,21 +6,35 @@ package tree;
 
 /**
  *
+ * @author Daniel
  * @author antoni
+ * @param <E>
  */
 public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<E> {
 
     private TreeNode<E> root;
 
+    /**
+     * Constructor de l'arbre binari
+     */
     public BinaryTreeReference() {
         root = null;
     }
-
+    
+    /**
+     * {@inheritDoc}
+     * @ord 0(1)
+     */
     @Override
     public boolean isEmpty() {
         return root == null;
     }
 
+    
+    /**
+     * {@inheritDoc}
+     * @ord 0(h) sent h l'altura màxima de l'arbre
+     */
     @Override
     public void insert(E e) {
         if (isEmpty()) {
@@ -37,16 +51,22 @@ public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<
                 insert(mother.getFillEsq(), e);
             } else {
                 mother.setFillEsq(new TreeNode<E>(e));
+                System.out.println("Madre: "+mother+" hijoE: "+e);
             }
         } else if (e.compareTo(mother.getElem()) > 0) {
             if (mother.getFillDret() != null) {
                 insert(mother.getFillDret(), e);
             } else {
                 mother.setFillDret(new TreeNode<E>(e));
+                System.out.println("Madre: "+mother+" hijoD: "+e);
             }
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * @ord 0(h) sent h l'altura màxima de l'arbre
+     */
     @Override
     public boolean contains(E e) {
         if (e.compareTo(root.getElem()) == 0) {
@@ -62,23 +82,36 @@ public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<
         if (e.compareTo(mother.getElem()) == 0) {
             return true;
         }
-        return contains(mother.getFillEsq(), e) || contains(mother.getFillDret(), e);
+        return contains(mother.getFillEsq(), e) ||
+               contains(mother.getFillDret(), e);
 
     }
 
+    /**
+     * {@inheritDoc}
+     * @ord 0(n) 
+     */
     @Override
     public int longestBranch() {
-        return longestBranch(root, 1);
+        if(root==null){
+            return 0;
+        }
+        return longestBranch(root, -1);
     }
     private int longestBranch(TreeNode<E> mother, int c){
         if(mother == null){
             return c;
         }
         c++;
+        System.out.println(mother+" "+c);
         return Math.max(longestBranch(mother.getFillEsq(),c), 
                 longestBranch(mother.getFillDret(),c));
     }
 
+    /**
+     * {@inheritDoc}
+     * @ord 0(h) sent h l'altura màxima de l'arbre
+     */
     @Override
     public E getMother(E e) { //Give us Mother3 Nintendo!
         if (e.compareTo(root.getElem()) == 0) { //root no te mare
@@ -107,6 +140,10 @@ public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     * @ord 0(1)
+     */
     @Override
     public E getRoot() {
         return root != null ? root.getElem() : null;

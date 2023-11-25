@@ -13,6 +13,10 @@ public class TreeNode<E extends Comparable<E>> {
     private TreeNode<E> fillEsq,fillDret;
     private E elem;
     
+    /**
+     *
+     * @param elem
+     */
     public TreeNode(E elem){
         this.elem = elem;
         fillEsq = null;
@@ -31,38 +35,76 @@ public class TreeNode<E extends Comparable<E>> {
         fillDret = fD;
     }
 
+    /**
+     *
+     * @return
+     */
     public TreeNode<E> getFillEsq() {
         return fillEsq;
     }
     
+    /**
+     *
+     * @param e
+     * @return
+     */
     public int compareEsq(E e){
         return fillEsq.getElem().compareTo(e);
     }
 
+    /**
+     *
+     * @param fillEsq
+     */
     public void setFillEsq(TreeNode<E> fillEsq) {
         this.fillEsq = fillEsq;
     }
 
+    /**
+     *
+     * @return
+     */
     public TreeNode<E> getFillDret() {
         return fillDret;
     }
     
+    /**
+     *
+     * @param e
+     * @return
+     */
     public int compareDret(E e){
         return fillDret.getElem().compareTo(e);
     }
 
+    /**
+     *
+     * @param fillDret
+     */
     public void setFillDret(TreeNode<E> fillDret) {
         this.fillDret = fillDret;
     }
 
+    /**
+     *
+     * @return
+     */
     public E getElem() {
         return elem;
     }
 
+    /**
+     *
+     * @param elem
+     */
     public void setElem(E elem) {
         this.elem = elem;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "TreeNode{" + "elem=" + elem + '}';
