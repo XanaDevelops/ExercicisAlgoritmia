@@ -5,7 +5,8 @@
 package tree;
 
 /**
- *
+ * Arbre Binari per Referencies
+ * @see BinaryTree
  * @author Daniel
  * @author antoni
  * @param <E>
@@ -33,7 +34,7 @@ public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<
     
     /**
      * {@inheritDoc}
-     * @ord 0(h) sent h l'altura màxima de l'arbre
+     * @ord 0(log2(n)) sent log2(n) l'altura màxima de l'arbre
      */
     @Override
     public void insert(E e) {
@@ -65,7 +66,7 @@ public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<
 
     /**
      * {@inheritDoc}
-     * @ord 0(h) sent h l'altura màxima de l'arbre
+     * @ord 0(log2(n)) sent log2(n) l'altura màxima de l'arbre
      */
     @Override
     public boolean contains(E e) {
@@ -110,7 +111,7 @@ public class BinaryTreeReference<E extends Comparable<E>> implements BinaryTree<
 
     /**
      * {@inheritDoc}
-     * @ord 0(h) sent h l'altura màxima de l'arbre
+     * @ord 0(log2(n)) sent log2(n) l'altura màxima de l'arbre
      */
     @Override
     public E getMother(E e) { //Give us Mother3 Nintendo!

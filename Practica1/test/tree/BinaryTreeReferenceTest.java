@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author antoni
  */
 public class BinaryTreeReferenceTest {
-    private BinaryTree<Integer> tree;
+    private BinaryTree<Integer> tree, tree2;
 
     @Before
     public void setUp() throws Exception {
@@ -24,6 +24,17 @@ public class BinaryTreeReferenceTest {
         tree.insert(20);
         tree.insert(10);
         tree.insert(80);
+        
+        //arbre propi
+        System.out.println("TREE2");
+        tree2 = new BinaryTreeReference();
+        tree2.insert(10);
+        tree2.insert(13);
+        tree2.insert(11);
+        tree2.insert(14);
+        tree2.insert(8);
+        tree2.insert(9);
+        tree2.insert(7);
     }
 
     /**
@@ -46,6 +57,10 @@ public class BinaryTreeReferenceTest {
         assertEquals(false,tree.contains(25));
         tree.insert(25);
         assertEquals(true,tree.contains(25));
+        
+        //tree2
+        assertEquals(false, tree2.contains(12));
+        assertEquals(true, tree2.contains(11));
     }
 
     /**
@@ -63,6 +78,9 @@ public class BinaryTreeReferenceTest {
         tree.insert(82);
         tree.insert(83);
         assertEquals(5, tree.longestBranch());
+        
+        //tree2
+        assertEquals(2, tree2.longestBranch());
     }
 
     /**
@@ -80,6 +98,11 @@ public class BinaryTreeReferenceTest {
         assertEquals(20, i);
         assertEquals(null, tree.getMother(15));
         assertEquals(null, tree.getMother(tree.getRoot()));
+        
+        //tree2
+        assertEquals(Integer.valueOf(8), tree2.getMother(7));
+        assertEquals(Integer.valueOf(10), tree2.getMother(8));
+        assertEquals(Integer.valueOf(13), tree2.getMother(14));
     }
 
     /**

@@ -14,8 +14,8 @@ public class TreeNode<E extends Comparable<E>> {
     private E elem;
     
     /**
-     *
-     * @param elem
+     * Classe auxiliar per a l'arbre binari
+     * @param elem Element a emmagatzemar
      */
     public TreeNode(E elem){
         this.elem = elem;
@@ -24,10 +24,10 @@ public class TreeNode<E extends Comparable<E>> {
     }
     
     /**
-     *
-     * @param elem
-     * @param fE
-     * @param fD
+     * Classe auxiliar per a l'arbre binari
+     * @param elem Element a emmagatzemar
+     * @param fE Referencia {@link TreeNode} fill esquerre
+     * @param fD Referencia {@link TreeNode} fill dret
      */
     public TreeNode(E elem, TreeNode<E> fE, TreeNode<E> fD){
         this.elem = elem;
@@ -37,15 +37,15 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @return
+     * @return {@link TreeNode} fill esquerre
      */
     public TreeNode<E> getFillEsq() {
         return fillEsq;
     }
     
     /**
-     *
-     * @param e
+     * Funció auxiliar pero comparable
+     * @param e element a comparar
      * @return
      */
     public int compareEsq(E e){
@@ -54,7 +54,7 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @param fillEsq
+     * @param fillEsq Nou Fill esquerre
      */
     public void setFillEsq(TreeNode<E> fillEsq) {
         this.fillEsq = fillEsq;
@@ -62,15 +62,15 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @return
+     * @return {@link TreeNode} fill dret
      */
     public TreeNode<E> getFillDret() {
         return fillDret;
     }
     
     /**
-     *
-     * @param e
+     * Funció auxiliar pero comparable
+     * @param e element a comparar
      * @return
      */
     public int compareDret(E e){
@@ -79,7 +79,7 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @param fillDret
+     * @param fillDret Nou Fill dret
      */
     public void setFillDret(TreeNode<E> fillDret) {
         this.fillDret = fillDret;
@@ -87,7 +87,7 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @return
+     * @return Element
      */
     public E getElem() {
         return elem;
@@ -95,7 +95,7 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @param elem
+     * @param elem Element
      */
     public void setElem(E elem) {
         this.elem = elem;
@@ -103,7 +103,7 @@ public class TreeNode<E extends Comparable<E>> {
 
     /**
      *
-     * @return
+     * @return String
      */
     @Override
     public String toString() {
