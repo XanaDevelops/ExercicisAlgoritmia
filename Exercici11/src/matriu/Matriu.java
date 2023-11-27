@@ -5,6 +5,7 @@
 package matriu;
 
 /**
+ * 
  * Interfície que respresenta una matriu que pot emmagatzemar elements 
  * comparables
  * @author antoni
@@ -29,13 +30,19 @@ public interface Matriu <E extends Comparable<E>>{
     public E get(int row, int col);
     
     /**
+     * @post (∀ij mij==mji=>simetric=true)∨(∃ij mij!=mj1=>simetric=false)
+     * Indica si la matriu és simètrica. Algorisme recursiu
+     * el orden de complejidad es n**2 ja que se hacer un recorrido de todas las filas i columnas de la matriz
      * Indica si la matriu és simètrica. Algorisme recursiu
      * @return vertader si és simètrica, false en cas contrari
      */
     public boolean isSymmetricalRecursiu(int diago);
     
     /**
-     * Indica si la matriu és simètrica. Algorisme iteratiu
+     *@pre (m.cols==m.rows)
+     * @post (∀ij mij==mji=>simetric=true)∨(∃ij mij!=mj1=>simetric=false)
+     * el orden de complejidad es n**2 ja que se hacer un recorrido de todas las filas i columnas de la matriz
+     * Indica si la matriu és simètrica. Algorisme recursiu
      * @return vertader si és simètrica, false en cas contrari
      */
     public boolean isSymmetricalIteratiu();
