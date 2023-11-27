@@ -61,14 +61,12 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         }
         for (int x = diago; x < this.cols; x++) {
 
-            if (this.get(diago, diago + 1).compareTo(this.get(diago + 1, diago)) != 0) {
+            if (this.get(diago, diago + x).compareTo(this.get(diago + x, diago)) != 0) {
                 return false;
-            } else {
-               return isSymmetricalRecursiu(diago + 1);
-            }
-
+            } 
+        
         }
-        return false;
+        return   isSymmetricalRecursiu(diago + 1);
     }
 
     /**
