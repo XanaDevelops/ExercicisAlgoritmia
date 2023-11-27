@@ -66,6 +66,22 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
 
     @Override
     public boolean isSymmetricalIteratiu() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (this.cols != this.rows){
+            return false;
+        }
+        if( this.cols*this.rows==1){
+            return true;
+        }
+        
+        int h=0;
+        while(h<this.cols){
+            for(int i = h; i<this.cols;i++){
+                if(this.matriu[h+this.cols+i].compareTo(this.matriu[(h+i)*this.cols])!=0){
+                    return false;
+                }
+            }
+            h++;
+        }
+        return true;
     }
 }
