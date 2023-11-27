@@ -40,6 +40,7 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         return this.matriu[row * this.cols + col];
     }
 
+    
     @Override
     public boolean isSymmetricalRecursiu(int diago) {
 
@@ -64,23 +65,34 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         return iguals;
     }
 
+    /**
+     * {@inheritDoc}
+     * Cas inicial: Matriu 1x1. Retorna True <br>
+     * Cas general: Matriu NxN.
+     * @return 
+     */
     @Override
     public boolean isSymmetricalIteratiu() {
+        //si quadrada
         if (this.cols != this.rows){
             return false;
         }
+        //si cas base
         if( this.cols*this.rows==1){
             return true;
         }
         
+        //iterar
         int h=0;
         while(h<this.cols){
-            for(int i = h; i<this.cols;i++){
-                if(this.matriu[h+this.cols+i].compareTo(this.matriu[(h+i)*this.cols])!=0){
+            System.out.println("h: "+h);
+            for(int i = h; h+i<this.cols;i++){
+                //System.out.println("DBG: "+get(h,h+i)+" "+get(h+i,h));
+                if(get(h,h+i).compareTo(get(h+i,h))!=0){
                     return false;
                 }
             }
-            h++;
+            h++; //Reducció tamany dades
         }
         return true;
     }
