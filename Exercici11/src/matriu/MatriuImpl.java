@@ -55,23 +55,20 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
     }
 
     private boolean isSymmetricalRecursiu(int diago) {
-        boolean iguals;
-        if (diago >= this.cols) {
+
+        if (diago == this.cols) {
             return true;
         }
-        int i = 0;
-        while ((diago * this.cols + diago + i) < (diago * this.cols + this.rows) && (this.get(diago, diago + i).compareTo(this.get(diago + i, diago)) == 0)) {
-            i++;
+        for (int x = diago; x < this.cols; x++) {
+
+            if (this.get(diago, diago + 1).compareTo(this.get(diago + 1, diago)) != 0) {
+                return false;
+            } else {
+               return isSymmetricalRecursiu(diago + 1);
+            }
+
         }
-        if ((diago * this.cols + diago + i) == (diago * this.cols + this.rows)) {
-
-            iguals = isSymmetricalRecursiu(diago + 1);
-
-        } else {
-            iguals = false;
-        }
-
-        return iguals;
+        return false;
     }
 
     /**
