@@ -42,8 +42,11 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
 
     
     @Override
-    public boolean isSymmetricalRecursiu(int diago) {
-
+    public boolean isSymmetricalRecursiu() {
+        //compruebas cuadrado
+        //lo que sea
+        //aqui puedes comprobar el caso base
+        //return isSymmetricalRecursiu(0);
         boolean iguals = false;
         if (this.cols == this.rows && diago < this.cols) {
             int i = 0;
@@ -63,6 +66,11 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
             return false;
         }
         return iguals;
+    }
+    private boolean isSymmetricalRecursiu(int diago){
+        //caso base -> return true
+        //reducir caso
+        
     }
 
     /**

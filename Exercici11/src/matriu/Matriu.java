@@ -36,7 +36,7 @@ public interface Matriu <E extends Comparable<E>>{
      * Indica si la matriu és simètrica. Algorisme recursiu
      * @return vertader si és simètrica, false en cas contrari
      */
-    public boolean isSymmetricalRecursiu(int diago);
+    public boolean isSymmetricalRecursiu();
     
     /**
      *@pre (m.cols==m.rows)

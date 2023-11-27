@@ -40,9 +40,9 @@ public class MatriuImplTest {
     @Test
     public void testIsSymmetricalRecursiu() {
         System.out.println("isSymmetricalRecursiu");
-        assertEquals(true, m1.isSymmetricalRecursiu(0));
-        assertEquals(false, m2.isSymmetricalRecursiu(0));
-        assertEquals(false, m3.isSymmetricalRecursiu(0));
+        assertEquals(true, m1.isSymmetricalRecursiu());
+        assertEquals(false, m2.isSymmetricalRecursiu());
+        assertEquals(false, m3.isSymmetricalRecursiu());
     }
 
     @Test
