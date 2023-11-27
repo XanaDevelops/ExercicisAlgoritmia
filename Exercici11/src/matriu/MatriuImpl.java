@@ -8,9 +8,9 @@ package matriu;
 import java.lang.reflect.Array;
 
 /**
- *
+ * Implementació de matriu array per files
  * @author antoni
- * @param <E>
+ * @param <E> Elements
  */
 public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
 
@@ -21,8 +21,8 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
     /**
      * Es crea una matriu representada en un array per files
      *
-     * @param cols
-     * @param rows
+     * @param cols nº columnes
+     * @param rows nº files
      */
     public MatriuImpl(E[] matriu, int rows, int cols) {
         this.rows = rows;
@@ -30,6 +30,7 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         this.matriu = matriu;
     }
 
+    
     @Override
     public void set(E e, int row, int col) {
         this.matriu[row * this.cols + col] = e;
@@ -40,6 +41,18 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         return this.matriu[row * this.cols + col];
     }
 
+    /**
+     * Cas base: Matriu 1x1, retorna true <br>
+     * Cas general: Matriu NxN on la primera fila és igual a la primera columna. 
+     * Es va reduint la matriu fins arribar al cas base
+     * @pre true
+     * @post (∀i,j Mij==Mji=>simetric=true)∨(∃i,j mij!=mj1=>simetric=false) Indica
+     * si la matriu és simètrica.
+     * @ord el orden de complejidad es n**2 ja que se hacer un recorrido de
+     * todas las filas i columnas de la matriz Indica si la matriu és simètrica.
+     * Algorisme recursiu
+     * {@inheritDoc }
+     */
     @Override
     public boolean isSymmetricalRecursiu() {
         //compruebas cuadrado
@@ -55,28 +68,27 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
     }
 
     private boolean isSymmetricalRecursiu(int diago) {
-
-        if (diago == this.cols) {
+        if (diago == this.cols) { //cas base
             return true;
         }
-        for (int x = 0; x < this.cols-diago; x++) {
-
-            if (this.get(diago, diago + x).compareTo(this.get(diago + x, diago)) != 0) {
-                return false;
-            } 
         
+        for (int x = 1; x < this.cols - diago; x++) {
+            if (this.get(diago, diago + x).compareTo(this.get(diago + x, diago)) != 0) {
+                return false; //tant precondició com postcondició es compleix
+            }
         }
-        return   isSymmetricalRecursiu(diago + 1);
+        return isSymmetricalRecursiu(diago + 1); //reducció tamany
     }
 
     /**
-     * {@inheritDoc} Cas inicial: Matriu 1x1. Retorna True <br>
-     * Cas general: Matriu NxN.
-     *
-     * @return
+     * @pre true
+     * @post (∀i,j Mij==Mji=>simetric=true)∨(∃i,j Mij!=Mj1=>simetric=false)
+     * @ord O(n^2) perquè recorr tots els elements de la matriu n*n en el pitjor
+     * dels casos
+     * {@inheritDoc }
      */
     @Override
-    public boolean isSymmetricalIteratiu() {
+    public boolean isSymmetricalIteratiu() { //RecFinal2Iteratiu
         //si quadrada
         if (this.cols != this.rows) {
             return false;
@@ -89,11 +101,11 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         //iterar
         int h = 0;
         while (h < this.cols) {
-            System.out.println("h: " + h);
-            for (int i = h; h + i < this.cols; i++) {
+            //System.out.println("h: " + h);
+            for (int i = 1; h + i < this.cols; i++) {
                 //System.out.println("DBG: "+get(h,h+i)+" "+get(h+i,h));
                 if (get(h, h + i).compareTo(get(h + i, h)) != 0) {
-                    return false;
+                    return false; //postcondició es compleix
                 }
             }
             h++; //Reducció tamany dades
