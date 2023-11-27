@@ -1,6 +1,4 @@
-
 package hanoi;
-
 
 import java.util.Stack;
 import org.junit.Test;
@@ -31,7 +29,6 @@ public class HanoiImplTest {
         copyAInit = (Stack<Integer>) a.clone();
     }
 
-  
     @Test
     public void testRecursiuHanoi() {
         System.out.println("recursiuHanoi");
@@ -44,10 +41,11 @@ public class HanoiImplTest {
         assertEquals(true, b.isEmpty());
         assertEquals(true, c.equals(copyAInit));
     }
- @Test
-    public void HanoiUnDisco(){
-        
-         a = new Stack();
+
+    @Test
+    public void HanoiUnDisco() {
+
+        a = new Stack();
         b = new Stack();
         c = new Stack();
         h = 1;
@@ -55,7 +53,7 @@ public class HanoiImplTest {
             a.push(i);
         }
         copyAInit = (Stack<Integer>) a.clone();
-         System.out.println("hanoi1disco");
+        System.out.println("hanoi1disco");
         assertEquals(true, a.equals(copyAInit));
         assertEquals(true, b.isEmpty());
         assertEquals(true, c.isEmpty());
@@ -65,11 +63,11 @@ public class HanoiImplTest {
         assertEquals(true, b.isEmpty());
         assertEquals(true, c.equals(copyAInit));
     }
-   
-     @Test
-    public void HanoiTresDiscos(){
-        
-         a = new Stack();
+
+    @Test
+    public void HanoiTresDiscos() {
+
+        a = new Stack();
         b = new Stack();
         c = new Stack();
         h = 3;
@@ -77,7 +75,7 @@ public class HanoiImplTest {
             a.push(i);
         }
         copyAInit = (Stack<Integer>) a.clone();
-         System.out.println("hanoi3discos");
+        System.out.println("hanoi3discos");
         assertEquals(true, a.equals(copyAInit));
         assertEquals(true, b.isEmpty());
         assertEquals(true, c.isEmpty());
@@ -87,6 +85,5 @@ public class HanoiImplTest {
         assertEquals(true, b.isEmpty());
         assertEquals(true, c.equals(copyAInit));
     }
-    
 
 }
