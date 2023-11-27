@@ -47,10 +47,17 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         //lo que sea
         //aqui puedes comprobar el caso base
         //return isSymmetricalRecursiu(0);
-        boolean iguals = false;
-        if (this.cols == this.rows && diago < this.cols) {
-            int i = 0;
-            while ((diago * this.cols + diago + i) < (diago * this.cols + this.rows) && (this.get(diago, diago + i).compareTo(this.get(diago + i, diago)) == 0)) {
+        if(this.cols!=this.rows){return false;}
+        
+        else{return this.isSymmetricalRecursiu(0);}
+        
+        
+    }
+    private boolean isSymmetricalRecursiu(int diago){
+        boolean iguals;
+     if(diago>=this.cols){return true;}
+      int i = 0;
+      while ((diago * this.cols + diago + i) < (diago * this.cols + this.rows) && (this.get(diago, diago + i).compareTo(this.get(diago + i, diago)) == 0)) {
                 i++;
             }
             if ((diago * this.cols + diago + i) == (diago * this.cols + this.rows)) {
@@ -58,20 +65,16 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
                 iguals = isSymmetricalRecursiu(diago + 1);
 
             } else {
-                return false;
+                iguals=false;
             }
-        } else if (diago==this.cols) {
-            return true;
-        } else {
-            return false;
-        }
-        return iguals;
-    }
-    private boolean isSymmetricalRecursiu(int diago){
-        //caso base -> return true
-        //reducir caso
         
-    }
+            
+        return iguals;
+        }
+        
+        
+        
+    
 
     /**
      * {@inheritDoc}
