@@ -59,7 +59,7 @@ public class MatriuImpl<E extends Comparable<E>> implements Matriu<E> {
         if (diago == this.cols) {
             return true;
         }
-        for (int x = diago; x < this.cols; x++) {
+        for (int x = 0; x < this.cols-diago; x++) {
 
             if (this.get(diago, diago + x).compareTo(this.get(diago + x, diago)) != 0) {
                 return false;

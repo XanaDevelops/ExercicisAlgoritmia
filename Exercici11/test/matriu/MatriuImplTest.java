@@ -52,6 +52,13 @@ public class MatriuImplTest {
         assertEquals(false, m2.isSymmetricalIteratiu());
         assertEquals(false, m3.isSymmetricalIteratiu());
     }
+    
+     @Test
+    public void testIsSymmetricalRecursiu2() {
+        System.out.println("isSymmetricalRecursiu 2");
+        assertEquals(false, m4.isSymmetricalRecursiu());
+        assertEquals(true, m5.isSymmetricalRecursiu());
+    }
 
     @Test
     public void testIsSymmetricalIteratiu2() {
