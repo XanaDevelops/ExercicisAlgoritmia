@@ -35,6 +35,7 @@ public class BacktrackingImplTest {
         int M = 5;
         int a[] = {1, 3, 1, 5, 2};
         ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> expResult2 = new ArrayList<>();
         
         ArrayList<Integer> s = new ArrayList<>();
         s.add(5);
@@ -47,10 +48,25 @@ public class BacktrackingImplTest {
         s = new ArrayList<>();
         s.add(1);s.add(3);s.add(1);
         expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(1);s.add(3);
+        expResult2.add(s);
+        
+        s = new ArrayList<>();
+        s.add(3);s.add(1);
+        expResult2.add(s);
+        
+        s = new ArrayList<>();
+        s.add(1);s.add(1);s.add(2);
+        expResult2.add(s);
 
         BacktrackingImpl instance = new BacktrackingImpl();
         ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
         assertEquals(expResult, result);
+        
+        result = instance.sumM(a, 4);
+        assertEquals(expResult2, result);
 
     }
 }
