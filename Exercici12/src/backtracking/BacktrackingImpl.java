@@ -23,7 +23,8 @@ public class BacktrackingImpl implements Backtracking {
         /*if(sols.isEmpty()){
             sols.add(new ArrayList<>());
         }*/
-        return sols;
+        return sols; /* aqui se se ha de retornar  un arraylist con todas 
+                        las possibles combinaciones que suman el numero deseado cumpliendo-se haci la post condicion*/
     }
 
     private ArrayList<ArrayList<Integer>> sumM(int[] a, int M, int[] t, int k,
@@ -32,7 +33,8 @@ public class BacktrackingImpl implements Backtracking {
         while (t[k] < 1) {
             t[k]++;
             int s = sum(a,t,k);
-            if ((s == M) && (k == a.length - 1)) { //caso base 
+            if ((s == M) && (k == a.length - 1)) { /*caso base, se da quando el conjunto suma la 
+                                                     cantidad deseada y se ha recorrido todo el array*/
                 printSol(a, t, sols,k);
             } else if ((s <= M) && (k < a.length - 1)) {
                 sumM(a, M, t, k + 1, sols);//k augmenta en uno reduciendo el tamaño de elementos a analizar
