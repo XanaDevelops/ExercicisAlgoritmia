@@ -13,6 +13,15 @@ import java.util.ArrayList;
  */
 public interface Backtracking {
     /**
+     *@pre ∀i ((arr[i]>0)∧(arr=null))
+     * @post ∀i ((ArrL.lenght>i=>0)∧(Ai[0]+Ai[1]....+Ai[Ai.lenght-1]=M))
+     * 
+     * L'ordre de complexitat d'aquest algorisme és aproximadament O(2^n), on n és la 
+     * longitud de l'array d'entrada. Això es deu al fet que per a cada element de l'array, hi ha
+     * dues opcions: incloure'l o excloure'l en cada subconjunt. Podeu visualitzar 
+     * aquesta complexitat com un arbre binari, on cada node té dues branques, representant 
+     * la decisió d'incloure o excloure un element.
+     * 
      * Donat un conjunt numèric, trobar tots els subconjunts que sumen M
      * @param a conjunt númeric. Tots els elements a són >0
      * @param M Resultat suma dels subconjunts. M>=0

@@ -32,10 +32,10 @@ public class BacktrackingImpl implements Backtracking {
         while (t[k] < 1) {
             t[k]++;
             int s = sum(a,t,k);
-            if ((s == M) && (k == a.length - 1)) {
+            if ((s == M) && (k == a.length - 1)) { //caso base 
                 printSol(a, t, sols,k);
             } else if ((s <= M) && (k < a.length - 1)) {
-                sumM(a, M, t, k + 1, sols);
+                sumM(a, M, t, k + 1, sols);//k augmenta en uno reduciendo el tamaño de elementos a analizar
 
             }
 
