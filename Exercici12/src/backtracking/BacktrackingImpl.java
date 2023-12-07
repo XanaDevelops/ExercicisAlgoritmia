@@ -29,7 +29,7 @@ public class BacktrackingImpl implements Backtracking {
             t[k]++;
             int s = sum(a,t,k);
             if ((s == M) && (k == a.length - 1)) {
-                printSol(a, t, sols);
+                printSol(a, t, sols,k);
             } else if ((s <= M) && (k < a.length - 1)) {
                 sumM(a, M, t, k + 1, sols);
 
@@ -42,25 +42,26 @@ public class BacktrackingImpl implements Backtracking {
     }
 
     private int sum(int[] a, int[] t, int k) {
-        System.out.println("SUM lol: ");
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(t));
-        System.out.println(k);
+        
+        //System.out.println(Arrays.toString(a));
+        //System.out.println(Arrays.toString(t));
+        //System.out.println(k);
         int r = 0;
         for (int i = 0; i < a.length; i++) {
             if (t[i] > 0) {
                 r += a[i];
             }
         }
-        System.out.println("SUM RES: " + r);
+        //System.out.println("SUM RES: " + r);
+        System.out.println("%d: %s = %d".formatted(k,Arrays.toString(t),r));
         return r;
     }
 
-    private void printSol(int[] a, int[] t, ArrayList<ArrayList<Integer>> sols) {
-        System.out.println("------ SOL ------ ");
+    private void printSol(int[] a, int[] t, ArrayList<ArrayList<Integer>> sols, int k) {
+        System.out.println("------ SOL ------ "+k);
         System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(t));
-        System.out.println("------ SOL ------ ");
+        System.out.println("----------------- ");
         ArrayList<Integer> r = new ArrayList<>();
         for (int i = 0; i < a.length; i++) {
             if (t[i] > 0) {

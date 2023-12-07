@@ -49,10 +49,7 @@ public class BacktrackingImplTest {
         s.add(1);s.add(3);s.add(1);
         expResult.add(s);
         
-        s = new ArrayList<>();
-        s.add(1);s.add(3);
-        expResult2.add(s);
-        
+        //exp2
         s = new ArrayList<>();
         s.add(3);s.add(1);
         expResult2.add(s);
@@ -60,6 +57,12 @@ public class BacktrackingImplTest {
         s = new ArrayList<>();
         s.add(1);s.add(1);s.add(2);
         expResult2.add(s);
+        
+        s = new ArrayList<>();
+        s.add(1);s.add(3);
+        expResult2.add(s);
+        
+        
 
         BacktrackingImpl instance = new BacktrackingImpl();
         ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
