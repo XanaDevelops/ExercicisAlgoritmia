@@ -32,7 +32,7 @@ public class BacktrackingImplTest {
     public void testSumM() {
         System.out.println("sumM");
         int M = 5;
-        int a[] = {1, -3, 1, 5, 2};
+        int a[] = {1, 3, 1, 5, 2};
         ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
 
         ArrayList<Integer> s = new ArrayList<>();

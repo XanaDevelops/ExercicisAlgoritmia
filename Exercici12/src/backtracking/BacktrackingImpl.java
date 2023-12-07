@@ -23,7 +23,8 @@ public class BacktrackingImpl implements Backtracking {
         /*if(sols.isEmpty()){
             sols.add(new ArrayList<>());
         }*/
-        return sols; /* aqui se se ha de retornar  un arraylist con todas 
+        return sols;
+        /* aqui se se ha de retornar  un arraylist con todas 
                         las possibles combinaciones que suman el numero deseado cumpliendo-se haci la post condicion*/
     }
 
@@ -32,10 +33,11 @@ public class BacktrackingImpl implements Backtracking {
         t[k] = -1;
         while (t[k] < 1) {
             t[k]++;
-            int s = sum(a,t,k);
-            if ((s == M) && (k == a.length - 1)) { /*caso base, se da quando el conjunto suma la 
+            int s = sum(a, t, k);
+            if ((s == M) && (k == a.length - 1)) {
+                /*caso base, se da quando el conjunto suma la 
                                                      cantidad deseada y se ha recorrido todo el array*/
-                printSol(a, t, sols,k);
+                printSol(a, t, sols, k);
             } else if ((s <= M) && (k < a.length - 1)) {
                 sumM(a, M, t, k + 1, sols);//k augmenta en uno reduciendo el tamaño de elementos a analizar
 
@@ -48,7 +50,7 @@ public class BacktrackingImpl implements Backtracking {
     }
 
     private int sum(int[] a, int[] t, int k) {
-        
+
         //System.out.println(Arrays.toString(a));
         //System.out.println(Arrays.toString(t));
         //System.out.println(k);
@@ -59,12 +61,12 @@ public class BacktrackingImpl implements Backtracking {
             }
         }
         //System.out.println("SUM RES: " + r);
-        System.out.println("%d: %s = %d".formatted(k,Arrays.toString(t),r));
+        System.out.println("%d: %s = %d".formatted(k, Arrays.toString(t), r));
         return r;
     }
 
     private void printSol(int[] a, int[] t, ArrayList<ArrayList<Integer>> sols, int k) {
-        System.out.println("------ SOL ------ "+k);
+        System.out.println("------ SOL ------ " + k);
         System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(t));
         System.out.println("----------------- ");
