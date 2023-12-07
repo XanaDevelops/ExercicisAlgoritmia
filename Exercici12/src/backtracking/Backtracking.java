@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public interface Backtracking {
     /**
      * Donat un conjunt numèric, trobar tots els subconjunts que sumen M
-     * @param a conjunt númeric. Tots els elements a són >=0
+     * @param a conjunt númeric. Tots els elements a són >0
      * @param M Resultat suma dels subconjunts. M>=0
      * @return conjunt dels subconjunts que sumen M
      */
