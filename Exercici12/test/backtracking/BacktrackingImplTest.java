@@ -14,7 +14,7 @@ import org.junit.Before;
  * @author antoni
  */
 public class BacktrackingImplTest {
-    
+
 //        /**
 //     * @param args the command line arguments
 //     */
@@ -25,7 +25,6 @@ public class BacktrackingImplTest {
 //
 //        //sumM(a, M);
 //    }
-
     /**
      * Test of sumM method, of class BacktrackingImpl.
      */
@@ -35,41 +34,192 @@ public class BacktrackingImplTest {
         int M = 5;
         int a[] = {1, 3, 1, 5, 2};
         ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
-        ArrayList<ArrayList<Integer>> expResult2 = new ArrayList<>();
-        
+
         ArrayList<Integer> s = new ArrayList<>();
         s.add(5);
         expResult.add(s);
-        
+
         s = new ArrayList<>();
-        s.add(3);s.add(2);
+        s.add(3);
+        s.add(2);
         expResult.add(s);
-        
+
         s = new ArrayList<>();
-        s.add(1);s.add(3);s.add(1);
+        s.add(1);
+        s.add(3);
+        s.add(1);
         expResult.add(s);
-        
-        //exp2
-        s = new ArrayList<>();
-        s.add(3);s.add(1);
-        expResult2.add(s);
-        
-        s = new ArrayList<>();
-        s.add(1);s.add(1);s.add(2);
-        expResult2.add(s);
-        
-        s = new ArrayList<>();
-        s.add(1);s.add(3);
-        expResult2.add(s);
-        
-        
 
         BacktrackingImpl instance = new BacktrackingImpl();
         ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
-        assertEquals(expResult, result);
-        
-        result = instance.sumM(a, 4);
-        assertEquals(expResult2, result);
+        //assertEquals(expResult, result);
+        assertEquals(true, comprobador(expResult, result));
 
+    }
+
+    @Test
+    public void test2() {
+        int M = 4;
+        int a[] = {1, 3, 1, 5, 2};
+
+        ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
+        ArrayList<Integer> s = new ArrayList<>();
+        //exp2
+        s = new ArrayList<>();
+        s.add(3);
+        s.add(1);
+        expResult.add(s);
+
+        s = new ArrayList<>();
+        s.add(1);
+        s.add(1);
+        s.add(2);
+        expResult.add(s);
+
+        s = new ArrayList<>();
+        s.add(1);
+        s.add(3);
+        expResult.add(s);
+
+        BacktrackingImpl instance = new BacktrackingImpl();
+        ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
+
+        assertEquals(true, comprobador(expResult, result));
+    }
+
+    @Test
+    public void test3() {
+        int M = 25;
+        int a[] = {1, 3, 1, 5, 2};
+
+        ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
+        ArrayList<Integer> s = new ArrayList<>();
+
+
+        BacktrackingImpl instance = new BacktrackingImpl();
+        ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
+
+        assertEquals(true, comprobador(expResult, result));
+    }
+
+        @Test
+    public void test4() {
+        int M = 7;
+        int a[] = {1, 3, 7, 4, 2, 1, 3};
+
+        ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
+        ArrayList<Integer> s = new ArrayList<>();
+
+        s = new ArrayList<>();
+        s.add(7);
+        expResult.add(s);
+
+        s = new ArrayList<>();
+        s.add(1);
+        s.add(3);
+        s.add(2);
+        s.add(1);
+        expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(1);
+        s.add(2);
+        s.add(1);
+        s.add(3);
+        expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(1);
+        s.add(3);
+        s.add(3);
+        expResult.add(s);
+
+        s = new ArrayList<>();
+        s.add(1);
+        s.add(4);
+        s.add(2);
+        expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(3);
+        s.add(1);
+        s.add(3);
+        expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(3);
+        s.add(4);
+        expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(4);
+        s.add(2);
+        s.add(1);
+        expResult.add(s);
+        
+        s = new ArrayList<>();
+        s.add(4);
+        s.add(3);
+        expResult.add(s);
+        
+        BacktrackingImpl instance = new BacktrackingImpl();
+        ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
+        
+        assertEquals(true, comprobador(expResult, result));
+    }
+    
+    @Test
+    public void test5() {
+        int M = 0;
+        int a[] = {2, 3, 2, 5, 2};
+
+        ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
+        ArrayList<Integer> s = new ArrayList<>();
+
+        s = new ArrayList<>(); //no coger ninguno
+        expResult.add(s);
+
+        BacktrackingImpl instance = new BacktrackingImpl();
+        ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
+
+        assertEquals(true, comprobador(expResult, result));
+    }
+    
+    @Test
+    public void test6() {
+        int M = 1;
+        int a[] = {2, 3, 2, 5, 2};
+
+        ArrayList<ArrayList<Integer>> expResult = new ArrayList<>();
+        ArrayList<Integer> s = new ArrayList<>();
+
+        BacktrackingImpl instance = new BacktrackingImpl();
+        ArrayList<ArrayList<Integer>> result = instance.sumM(a, M);
+
+        assertEquals(true, comprobador(expResult, result));
+    }
+    /**
+     * Funcion auxiliar test, por si no coincide el orden esperado de los
+     * subconjuntos, pero si estan todos
+     *
+     * @param exp
+     * @param test
+     * @return
+     */
+    private boolean comprobador(ArrayList<ArrayList<Integer>> exp, ArrayList<ArrayList<Integer>> test) {
+        System.out.println("Test: "+test);
+        System.out.println("Expected: "+exp);
+        if(exp.isEmpty() && test.isEmpty()){
+            return true;
+        }
+        for (ArrayList<Integer> subc : exp) {
+            if (test.contains(subc)) {
+                test.remove(subc);
+            }
+            else{
+                return false;
+            }
+        }
+        return test.isEmpty();
     }
 }

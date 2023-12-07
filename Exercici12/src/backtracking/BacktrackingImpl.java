@@ -19,7 +19,11 @@ public class BacktrackingImpl implements Backtracking {
     public ArrayList<ArrayList<Integer>> sumM(int[] a, int M) {
         int[] t = new int[a.length];
         ArrayList<ArrayList<Integer>> sols = new ArrayList<>();
-        return sumM(a, M, t, 0, sols);
+        sols = sumM(a, M, t, 0, sols);
+        /*if(sols.isEmpty()){
+            sols.add(new ArrayList<>());
+        }*/
+        return sols;
     }
 
     private ArrayList<ArrayList<Integer>> sumM(int[] a, int M, int[] t, int k,
