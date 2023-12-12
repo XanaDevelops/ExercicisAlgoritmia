@@ -9,10 +9,19 @@ import java.util.Random;
 
 /**
  *
+ * @author Pere, Daniel
  * @author antoni
+ * @param <E> Tipus dades a ordenar
  */
 public class HeapSortImpl<E extends Comparable<E>> implements HeapSort<E> {
 
+    /**
+     * {@inheritDoc }
+     * @pre ∀i: 0&lt;=i&lt;h.length: h<sub>i</sub>!=null
+     * @post ∀i: 0&lt;=i&lt;h.length-1: h<sub>i</sub>&lt;h<sub>i+1</sub>
+     * @ord O(nlog<sub>2</sub>(n))
+     * @param h Array a ordenar
+     */
     @Override
     public void heapSort(E[] h) {
      int n = h.length;
@@ -22,7 +31,7 @@ public class HeapSortImpl<E extends Comparable<E>> implements HeapSort<E> {
             heapify(h, n, i);
         }
 
-       
+        
         for (int i = n - 1; i > 0; i--) {
            
             E temp = h[0];
