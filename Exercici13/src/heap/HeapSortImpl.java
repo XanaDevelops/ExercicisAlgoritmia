@@ -15,14 +15,14 @@ package heap;
  * 
  * @author Pere, Daniel
  * @author antoni
- * @param <E> Tipus dades a ordenar
+ * @param <E> Tipus de dades a ordenar
  */
 public class HeapSortImpl<E extends Comparable<E>> implements HeapSort<E> {
 
     /**
      * {@inheritDoc }
      *
-     * @pre ∀i: 0&lt;=i&lt;h.length: h<sub>i</sub>!=null
+     * @pre ∀i: 0&lt;=i&lt;h.length: h<sub>i</sub>!=null ∧ h.length &gt;0 ∧ h!=null
      * @post ∀i: 0&lt;=i&lt;h.length-1: h<sub>i</sub>&lt;h<sub>i+1</sub>
      * @ord O(nlog<sub>2</sub>(n))
      * @param h Array a ordenar
