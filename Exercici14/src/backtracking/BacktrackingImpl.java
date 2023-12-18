@@ -9,6 +9,7 @@ import java.util.Random;
 
 /**
  *
+ * @author Pere, Daniel
  * @author antoni
  */
 public class BacktrackingImpl implements Backtracking {
@@ -18,10 +19,16 @@ public class BacktrackingImpl implements Backtracking {
         int n = w.length;
         int[] mejorCombinacion = new int[n];
 
-        Random r = new Random();
-        if (r.nextBoolean() && false) {
+        //boolean forceMode = false; 
+        
+        Random r = new Random(); //testea aleatoriamente rec y iter
+        
+        
+        if (r.nextBoolean()) {  //la interfaz no diferencia
+            System.out.println("Rec");
             mochilaUtil(W, w, p, n, 0, 0, new int[n], mejorCombinacion);
         } else {
+            System.out.println("Iter");
             mochilaUtilIter(W, w, p, mejorCombinacion);
         }
         // Devolvemos la combinación óptima en binario
@@ -58,12 +65,9 @@ public class BacktrackingImpl implements Backtracking {
             t[i] = -1;
         }
         int maxVal = Integer.MIN_VALUE;
-        int curPes = 0, curVal = 0;
         int k = 0;
         while (k >= 0) {
             t[k]++;
-            //curPes += pes[k] * t[k];
-            //curVal += val[k] * t[k];
             if (t[k] < 2) {
                 if (calcularPeso(t, pes) <= pesMax && (k == t.length - 1)) {
                     if (calcularValor(t, val) > maxVal) {
@@ -74,8 +78,6 @@ public class BacktrackingImpl implements Backtracking {
                     k++;
                 }
             } else {
-                //curPes -= pes[k] * t[k];
-                //curVal -= val[k] * t[k];
                 t[k]=-1;
                 k--;
             }
