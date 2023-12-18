@@ -20,10 +20,8 @@ public class BacktrackingImpl implements Backtracking {
         int[] mejorCombinacion = new int[n];
 
         //boolean forceMode = false; 
-        
         Random r = new Random(); //testea aleatoriamente rec y iter
-        
-        
+
         if (r.nextBoolean()) {  //la interfaz no diferencia
             System.out.println("Rec");
             mochilaUtil(W, w, p, n, 0, 0, new int[n], mejorCombinacion);
@@ -60,7 +58,7 @@ public class BacktrackingImpl implements Backtracking {
     }
 
     private void mochilaUtilIter(int pesMax, int[] pes, int[] val, int[] sol) {
-        int[] t = new int[pes.length];
+        int[] t = new int[pes.length]; //posible sol
         for (int i = 0; i < t.length; i++) {
             t[i] = -1;
         }
@@ -78,7 +76,7 @@ public class BacktrackingImpl implements Backtracking {
                     k++;
                 }
             } else {
-                t[k]=-1;
+                t[k] = -1;
                 k--;
             }
         }
@@ -91,7 +89,7 @@ public class BacktrackingImpl implements Backtracking {
         }
         return valorTotal;
     }
-    
+
     private int calcularPeso(int[] combinacion, int[] pesos) {
         int pesoTotal = 0;
         for (int i = 0; i < combinacion.length; i++) {
