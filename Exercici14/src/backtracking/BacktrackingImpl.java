@@ -5,25 +5,31 @@
  */
 package backtracking;
 
+import java.util.Random;
+
 /**
  *
  * @author antoni
  */
 public class BacktrackingImpl implements Backtracking {
 
-   @Override
+    @Override
     public int[] knapSack(int W, int w[], int p[]) {
         int n = w.length;
         int[] mejorCombinacion = new int[n];
 
-        mochilaUtil(W, w, p, n, 0, 0, new int[n], mejorCombinacion);
-
+        Random r = new Random();
+        if (r.nextBoolean() && false) {
+            mochilaUtil(W, w, p, n, 0, 0, new int[n], mejorCombinacion);
+        } else {
+            mochilaUtilIter(W, w, p, mejorCombinacion);
+        }
         // Devolvemos la combinación óptima en binario
         return mejorCombinacion;
     }
 
     private void mochilaUtil(int capacidad, int[] pesos, int[] valores, int n, int indice,
-                              int pesoActual, int[] combinacionActual, int[] mejorCombinacion) {
+            int pesoActual, int[] combinacionActual, int[] mejorCombinacion) {
         // Caso base: si hemos explorado todos los elementos
         if (indice == n) {
             // Verificamos si la combinación actual es mejor que la mejor conocida
@@ -46,11 +52,49 @@ public class BacktrackingImpl implements Backtracking {
                 pesoActual, combinacionActual, mejorCombinacion);
     }
 
+    private void mochilaUtilIter(int pesMax, int[] pes, int[] val, int[] sol) {
+        int[] t = new int[pes.length];
+        for (int i = 0; i < t.length; i++) {
+            t[i] = -1;
+        }
+        int maxVal = Integer.MIN_VALUE;
+        int curPes = 0, curVal = 0;
+        int k = 0;
+        while (k >= 0) {
+            t[k]++;
+            //curPes += pes[k] * t[k];
+            //curVal += val[k] * t[k];
+            if (t[k] < 2) {
+                if (calcularPeso(t, pes) <= pesMax && (k == t.length - 1)) {
+                    if (calcularValor(t, val) > maxVal) {
+                        maxVal = calcularValor(t, val);
+                        System.arraycopy(t, 0, sol, 0, t.length);
+                    }
+                } else if (calcularPeso(t, pes) <= pesMax && (k < t.length - 1)) {
+                    k++;
+                }
+            } else {
+                //curPes -= pes[k] * t[k];
+                //curVal -= val[k] * t[k];
+                t[k]=-1;
+                k--;
+            }
+        }
+    }
+
     private int calcularValor(int[] combinacion, int[] valores) {
         int valorTotal = 0;
         for (int i = 0; i < combinacion.length; i++) {
             valorTotal += combinacion[i] * valores[i];
         }
         return valorTotal;
+    }
+    
+    private int calcularPeso(int[] combinacion, int[] pesos) {
+        int pesoTotal = 0;
+        for (int i = 0; i < combinacion.length; i++) {
+            pesoTotal += combinacion[i] * pesos[i];
+        }
+        return pesoTotal;
     }
 }
