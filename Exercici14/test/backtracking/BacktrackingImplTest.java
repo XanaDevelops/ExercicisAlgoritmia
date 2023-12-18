@@ -4,6 +4,7 @@
  */
 package backtracking;
 
+import java.util.Arrays;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -28,6 +29,7 @@ public class BacktrackingImplTest {
         int[] expResult = {1, 0, 0, 1};
         BacktrackingImpl instance = new BacktrackingImpl();
         int[] result = instance.knapSack(W, w, p);
+        System.out.println(Arrays.toString(result));
         assertArrayEquals(expResult, result);
     }
     
