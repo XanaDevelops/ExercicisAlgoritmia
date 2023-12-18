@@ -47,6 +47,8 @@ public class BacktrackingImpl implements Backtracking {
         // Tomar el elemento actual si cabe en la mochila
         if (pesoActual + pesos[indice] <= capacidad) {
             combinacionActual[indice] = 1;
+            //antes y después de la llamada recursiva se cumplen precondición y postcondición
+            //además, el conjunto se reduce al avanzar por el árbol binario
             mochilaUtil(capacidad, pesos, valores, n, indice + 1,
                     pesoActual + pesos[indice], combinacionActual, mejorCombinacion);
         }
