@@ -66,19 +66,25 @@ public class BacktrackingImpl implements Backtracking {
         }
         int maxVal = Integer.MIN_VALUE;
         int k = 0;
+        int cPes = 0, cVal = 0;
         while (k >= 0) {
-            t[k]++;
-            if (t[k] < 2) {
-                if (calcularPeso(t, pes) <= pesMax && (k == t.length - 1)) {
-                    if (calcularValor(t, val) > maxVal) {
-                        maxVal = calcularValor(t, val);
+            if (t[k] < 1) {
+                t[k]++;
+                cPes += pes[k]*t[k];
+                cVal += val[k]*t[k];
+                if (cPes <= pesMax && (k == t.length - 1)) {
+                    if (cVal > maxVal) {
+                        maxVal = cVal;
                         System.arraycopy(t, 0, sol, 0, t.length);
                     }
-                } else if (calcularPeso(t, pes) <= pesMax && (k < t.length - 1)) {
+                } else if (cPes <= pesMax && (k < t.length - 1)) {
                     k++;
                 }
             } else {
+                cPes -= pes[k]*t[k];
+                cVal -= val[k]*t[k];
                 t[k] = -1;
+                
                 k--;
             }
         }
