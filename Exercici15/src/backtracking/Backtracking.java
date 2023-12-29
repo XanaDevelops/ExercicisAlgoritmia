@@ -13,7 +13,7 @@ public interface Backtracking {
     
     /**
      * @pre (∀i,j:(Map[i][j]=1-->Teritorio i adyacente Teritorio j)∧(Map[i][j]=0-->Teritorio i  no adyacente Teritorio j))∧(nColors>0)
-     * @post (∀i,j  (Territorio adyacente i !=Territorio adyacente j)-->return false )
+     * @post (∀i,j  (Territorio adyacente i color !=Territorio adyacente j color)-->return true )∨(∀i,j  (Territorio adyacente i color ==Territorio adyacente j color)-->return false )
      * 
      * @ord En el pitjor cas, l'algorisme pot explorar totes les combinacions possibles 
      * de colors per a cada territori, que és una operació exponencial amb el nombre 
