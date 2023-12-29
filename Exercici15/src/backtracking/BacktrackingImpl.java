@@ -44,9 +44,9 @@ public class BacktrackingImpl implements Backtracking {
     private void MapColor(int[][] map, int nColors, int ColorMap[], int sol[], int k) {
         ColorMap[k] = -1;
         while (ColorMap[k] < nColors - 1 && sol[0] == -1) {
-            ColorMap[k]++;
+            ColorMap[k]++; 
             if (possible(map, ColorMap, k) == true && k + 1 < ColorMap.length) {
-                MapColor(map, nColors, ColorMap, sol, k + 1);
+                MapColor(map, nColors, ColorMap, sol, k + 1); //augmentar k redueix el nombre d'elements a comprobar
             } else if (k + 1 == ColorMap.length && possible(map, ColorMap, k) == true) {
                 System.arraycopy(ColorMap, 0, sol, 0, ColorMap.length);
             }
