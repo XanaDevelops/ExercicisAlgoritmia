@@ -13,21 +13,30 @@ import java.util.Arrays;
  */
 public class BacktrackingImpl implements Backtracking {
 
+    //controla si recursiu o iteratiu
+    private final boolean ITERMODE = true;
+
     @Override
     public boolean mapColor(int[][] map, int nColors) {
-        int ColorMap[] = new int[map.length];
-        Arrays.fill(ColorMap, -1);
         int sol[] = new int[map.length];
-        Arrays.fill(sol, -1);
-        MapColor(map, nColors, ColorMap, sol, 0);
 
-        if (sol[0] != -1) {
-
-            System.out.println(Arrays.toString(sol));
-            return true;
-
+        if (ITERMODE) {
+            return mapColorIter(map, nColors, sol);
         } else {
-            return false;
+            int ColorMap[] = new int[map.length];
+            Arrays.fill(ColorMap, -1);
+
+            Arrays.fill(sol, -1);
+            MapColor(map, nColors, ColorMap, sol, 0);
+
+            if (sol[0] != -1) {
+
+                System.out.println(Arrays.toString(sol));
+                return true;
+
+            } else {
+                return false;
+            }
         }
 
     }
@@ -45,17 +54,36 @@ public class BacktrackingImpl implements Backtracking {
 
     }
 
-    public boolean possible(int[][] map, int ColorMap[], int k) {
-
-        for (int x = 0; x < map[k].length; x++) {
-
-            if (ColorMap[k] == ColorMap[map[k][x]]) {
-                return false;
+    private boolean mapColorIter(int[][] map, int nColors, int sol[]) {
+        int t[] = new int[map.length];
+        Arrays.fill(t, -1);
+        int k = 0;
+        while (k >= 0) {
+            //System.out.println("D: " + Arrays.toString(t));
+            if (t[k] < nColors) {
+                t[k]++;
+                if (possible(map, t, k)) {
+                    if (k == t.length - 1) {
+                        System.out.println(Arrays.toString(t));
+                        return true;
+                    }
+                    k++;
+                }
+            } else {
+                t[k] = -1;
+                k--;
             }
 
         }
+        return false;
+    }
 
+    public boolean possible(int[][] map, int ColorMap[], int k) {
+        for (int x = 0; x < map[k].length; x++) {
+            if (ColorMap[k] == ColorMap[map[k][x]]) {
+                return false;
+            }
+        }
         return true;
-
     }
 }
