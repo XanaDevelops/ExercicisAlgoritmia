@@ -30,4 +30,37 @@ public class BacktrackingImplTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testSingle(){
+        System.out.println("1 color, mapa vacio");
+        int[][] map = {{}};
+        int nColors = 1;
+        BacktrackingImpl instance = new BacktrackingImpl();
+        boolean expResult = true;
+        boolean result = instance.mapColor(map, nColors);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testVecino(){
+        System.out.println("1 color, 2 vecinos");
+        int[][] map = {{1},{0}};
+        int nColors = 1;
+        BacktrackingImpl instance = new BacktrackingImpl();
+        boolean expResult = false;
+        boolean result = instance.mapColor(map, nColors);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testVecinoTrue(){
+        System.out.println("2 color, 2 vecinos");
+        int[][] map = {{1},{0}};
+        int nColors = 2;
+        BacktrackingImpl instance = new BacktrackingImpl();
+        boolean expResult = true;
+        boolean result = instance.mapColor(map, nColors);
+        assertEquals(expResult, result);
+    }
+    
 }

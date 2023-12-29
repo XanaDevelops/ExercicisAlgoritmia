@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class BacktrackingImpl implements Backtracking {
 
     //controla si recursiu o iteratiu
-    private final boolean ITERMODE = true;
+    private final boolean ITERMODE = false;
 
     @Override
     public boolean mapColor(int[][] map, int nColors) {
