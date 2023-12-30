@@ -15,6 +15,7 @@
 
 # Package Files #
 *.jar
+!opencsv-5.9.jar
 *.war
 *.nar
 *.ear
@@ -70,3 +71,4 @@ replay_pid*
 /Exercici14/build/
 /PracticaFinal/build/
 /Exercici15/build/
+/Exercici15/dist/
