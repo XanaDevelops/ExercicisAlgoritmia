@@ -36,7 +36,7 @@ public class MotxillaImpl implements InterfaceMotxilla {
 
             if (t[k] < 1) {
                 t[k]++;
-                sum(W, w, p, sol, t, comprov, k);
+                sum(W, w, p, sol, t, comprov);
                 if (comprov[0] < W && k < t.length) {
                     if (k < t.length - 1) {
                         k++;
@@ -57,7 +57,7 @@ public class MotxillaImpl implements InterfaceMotxilla {
 
         while (t[k] < 1) {
             t[k]++;
-            sum(W, w, p, sol, t, comprov, k);
+            sum(W, w, p, sol, t, comprov);
             if (comprov[0] < W && k + 1 < w.length) {
                 KnapSack(W, w, p, sol, t, comprov, k + 1);
             }
@@ -65,7 +65,7 @@ public class MotxillaImpl implements InterfaceMotxilla {
         t[k] = 0;
     }
 
-    private void sum(int W, int[] w, int[] p, int[] sol, int[] t, int[] comprov, int k) {
+    private void sum(int W, int[] w, int[] p, int[] sol, int[] t, int[] comprov) {
         Arrays.fill(comprov, 0);
 
         for (int x = 0; x < p.length; x++) {
