@@ -21,7 +21,7 @@ public interface Motxilla {
      * @return conjunt de forma que cada pes sigui inferior o 
      * igual a un límit determinat i el profit sigui el més gran possible
      */
-    public ElementMotxilla[] recursiu(ElementMotxilla a[], double W1, double W2);
+    public ElementMotxilla[] recursiu(ElementMotxilla  a[], double W1, double W2);
     
     /**
      * Resol la variant de la motxilla de l'enunciat de forma iterativa

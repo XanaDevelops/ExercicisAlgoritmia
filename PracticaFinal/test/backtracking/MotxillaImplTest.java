@@ -35,7 +35,7 @@ public class MotxillaImplTest {
     @Test
     public void testRecursiu() {
         System.out.println("recursiu");
-        test(m.iteratiu(a, 3.0, 5.0));
+        test(m.recursiu(a, 3.0, 5.0));
     }
 
     /**
