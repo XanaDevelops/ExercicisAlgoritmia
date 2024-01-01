@@ -18,8 +18,8 @@ public class MotxillaImpl implements Motxilla {
         double[] comprov = new double[4];
         int t[] = new int[a.length];
         Arrays.fill(sol, 0);
-        Arrays.fill(t, -1);
-        recursiu(a,comprov,sol,t,W1,W2,0);
+        Arrays.fill(t, 0);
+        recursiu(a, comprov, sol, t, W1, W2, 0);
 
         return CrearSol(sol, a);
 
@@ -31,6 +31,7 @@ public class MotxillaImpl implements Motxilla {
 
         while (t[k] < 1) {
             t[k]++;
+              System.out.println(Arrays.toString(t));
             sum(a, comprov, t, sol, W1, W2);
             if (comprov[0] < W1 && comprov[1] < W2 && k < t.length) {
                 if (k < t.length - 1) {
@@ -55,21 +56,24 @@ public class MotxillaImpl implements Motxilla {
     private void iteratiu(ElementMotxilla[] a, int[] sol, double W1, double W2) {
         double[] comprov = new double[4];
         int t[] = new int[a.length];
-        Arrays.fill(t, -1);
+        Arrays.fill(t, 0);
 
         int k = 0;
+        t[k] = -1;
         while (k >= 0) {
 
             if (t[k] < 1) {
                 t[k]++;
+                System.out.println(Arrays.toString(t));
                 sum(a, comprov, t, sol, W1, W2);
                 if (comprov[0] < W1 && comprov[1] < W2 && k < t.length) {
                     if (k < t.length - 1) {
                         k++;
+                        t[k] = -1;
                     }
                 }
             } else {
-                t[k] = -1;
+                t[k] = 0;
                 k--;
             }
 
