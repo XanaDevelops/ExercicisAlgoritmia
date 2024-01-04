@@ -26,8 +26,7 @@ public class MotxillaImplTest {
     private Motxilla m;
     
     private Generator gen;
-    private ElementMotxilla<VideoGame> games[];
-    private int[] test1Indexes = {1,3,4,7};
+    private int[] test1Indexes = {1,3,4,7}; //indices de juegos
 
     @Before
     public void setUp() {
@@ -67,7 +66,7 @@ public class MotxillaImplTest {
     
     @Test
     public void testGame1Rec() throws IOException, CsvValidationException{
-        System.out.println("recursiu 1");
+        System.out.println("recursiu TEST");
         ElementMotxilla[] result = m.recursiu(gen.generate(test1Indexes), 200, 20);
         for(ElementMotxilla e:result){
             System.out.println("R: "+((VideoGame)e.getElement()).toString());

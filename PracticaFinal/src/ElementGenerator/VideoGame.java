@@ -44,7 +44,6 @@ public class VideoGame implements Serializable {
             String publisher, double salesNA, double salesEU, double salesJP, double salesOT,
             double salesGlobal, int critScore, int critCount, int userScore, int userCount,
             String dev, String rating) {
-
         this.index = index;
         this.name = name;
         this.platform = platform;
