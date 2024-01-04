@@ -4,6 +4,13 @@
  */
 package backtracking;
 
+import ElementGenerator.Generator;
+import ElementGenerator.VideoGame;
+import com.opencsv.exceptions.CsvValidationException;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,6 +24,10 @@ public class MotxillaImplTest {
 
     private ElementMotxilla<String> a[];
     private Motxilla m;
+    
+    private Generator gen;
+    private ElementMotxilla<VideoGame> games[];
+    private int[] test1Indexes = {1,3,4,7};
 
     @Before
     public void setUp() {
@@ -27,6 +38,13 @@ public class MotxillaImplTest {
         a[3] = new ElementMotxilla("D", 2.0, 1.0, 6.0);
         a[4] = new ElementMotxilla("E", 1.0, 2.0, 5.0);
         m = new MotxillaImpl();
+        try {
+            gen = new Generator();
+        } catch (IOException ex) {
+            Logger.getLogger(MotxillaImplTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CsvValidationException ex) {
+            Logger.getLogger(MotxillaImplTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -45,6 +63,18 @@ public class MotxillaImplTest {
     public void testIteratiu() {
         System.out.println("iteratiu");
         test(m.iteratiu(a, 3.0, 5.0));
+    }
+    
+    @Test
+    public void testGame1Rec() throws IOException, CsvValidationException{
+        System.out.println("recursiu 1");
+        ElementMotxilla[] result = m.recursiu(gen.generate(test1Indexes), 200, 20);
+        for(ElementMotxilla e:result){
+            System.out.println("R: "+((VideoGame)e.getElement()).toString());
+        }
+               
+                
+        assertTrue(true);
     }
 
     private void test(ElementMotxilla[] result) {

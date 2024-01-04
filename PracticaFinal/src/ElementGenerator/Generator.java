@@ -4,11 +4,20 @@
  */
 package ElementGenerator;
 
+import backtracking.ElementMotxilla;
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+import org.apache.commons.lang3.ObjectUtils;
 import com.opencsv.exceptions.CsvValidationException;
+import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -17,22 +26,48 @@ import java.io.IOException;
 public class Generator {
 
     public static final String csvPath = "Video_Games.csv";
-
-    private CSVReader reader;
+    
+    
+    public static final String
+            allGames  = "games.dat";
+    
+    
+    private FileReader fReader;
 
     public Generator() throws FileNotFoundException, IOException, CsvValidationException {
-        FileReader fReader = new FileReader(csvPath);
-        System.out.println(fReader);
-        reader = new CSVReader(fReader);
-
-        String[] nextRecord;
-        System.out.println(reader);
-        // we are going to read data line by line 
-        while ((nextRecord = reader.readNext()) != null) {
-            for (String cell : nextRecord) {
-                System.out.print(cell + "\t");
+        fReader = new FileReader(csvPath);
+    }
+    
+    public void generateAll() throws CsvException, IOException{
+        try (ObjectOutputStream oos = new ObjectOutputStream(
+                new BufferedOutputStream(new FileOutputStream(allGames))); CSVReader reader = new CSVReader(fReader)) {
+            List<String[]> games = reader.readAll();
+            for(String[] data:games){
+                //System.out.println(Arrays.toString(data));
+                if(data[0].compareTo("index")==0){ //skipear cabecera
+                    continue;
+                }
+                VideoGame vg = new VideoGame(data);
+                System.out.println(vg);
+                oos.writeObject(vg);
             }
-            System.out.println();
         }
     }
+    
+    
+    public ElementMotxilla[] generate(int[] indexes) throws IOException, CsvValidationException{
+        ElementMotxilla<VideoGame>[] elems = new ElementMotxilla[indexes.length];
+        try (CSVReader reader = new CSVReader(fReader)) {
+            int lastIndex=0;
+            System.out.println(elems.length);
+            for (int i = 0; i < elems.length; i++) {
+                reader.skip(indexes[i]-lastIndex);
+                lastIndex=indexes[i];
+                elems[i] = new VideoGame(reader.peek()).toElementMotxilla();
+                System.out.println(i+" "+elems[i].getElement());
+            }
+        }
+        return elems;
+    }
+    
 }

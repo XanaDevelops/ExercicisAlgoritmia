@@ -4,6 +4,7 @@
  */
 package ElementGenerator;
 
+import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -41,13 +42,12 @@ public class GeneratorTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    public void testSomeMethod() throws CsvException {
         try {
             // TODO review the generated test code and remove the default call to fail.
             Generator gen = new Generator();
-        } catch (IOException ex) {
-            Logger.getLogger(GeneratorTest.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (CsvValidationException ex) {
+            gen.generateAll();
+        } catch (IOException | CsvValidationException ex) {
             Logger.getLogger(GeneratorTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
