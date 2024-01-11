@@ -16,6 +16,7 @@
 # Package Files #
 *.jar
 !opencsv-5.9.jar
+!commons-lang3-3.14.0.jar
 *.war
 *.nar
 *.ear
