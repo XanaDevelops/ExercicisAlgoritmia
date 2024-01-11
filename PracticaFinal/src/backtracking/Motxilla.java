@@ -15,7 +15,7 @@ package backtracking;
 public interface Motxilla {
     /**
      * Resol la variant de la motxilla de l'enunciat de forma recursiva
-     *  @pre (W1 >= 0&&W2 >= 0&&a!=null&&(∀i a.length>i>=0 )->(a[i].element!=null&&a[i].w1>=0&&a[i].w2>=0&&a[i].profit>=0))
+     * @pre (W1 >= 0&&W2 >= 0&&a!=null&&(∀i a.length>i>=0 )->(a[i].element!=null&&a[i].w1>=0&&a[i].w2>=0&&a[i].profit>=0))
      * @post La postcondicion es que el resultat donat pel subprograma ha de tornar un array no nul que contindra la combinacio d'elements
      * maxims que no superen cap dels dos pesos maxims i la qual  el  seu profit  conjunt
      * sigui el  maxim dins les combinacions possibles d'elments que no superin els pesos maxims.
