@@ -36,7 +36,7 @@ public interface Motxilla {
      * 
      * @ord El algoritme es de complexitat  O(2**n) aixo es deu a que per cada element del array tenim dos possibles camins 
      * ,agafar o no agafar el element per lo tant en el pitjor dels casos tendrem 2**n combinacions.Si ho miram per 
-     * el teorema ade la substració arribarem a la mateixa conclusió ja que a cada iteració en el pitjor dels casos feriem dos cridades 
+     * el teorema de la substració arribarem a la mateixa conclusió ja que a cada iteració en el pitjor dels casos feriem dos cridades 
      * recursives una amb l'element a 0 i una amb l'element a 1 per lo tant a=2 per lo tant ens troberem en el cas de a>1,despres podem 
      * veure que c=1 ya que anam avançant de un en un sobre el array de elements finalment com podem veure n es igual al nombre de elements a provar.
      * Per lo tant si substituim per la formula corresponent que en aquest cas es O(a**n/c) obtenim com ha resultat O(2**n).
