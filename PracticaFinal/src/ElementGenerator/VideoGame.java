@@ -84,7 +84,7 @@ public class VideoGame implements Serializable {
     }
     
     public ElementMotxilla<VideoGame> toElementMotxilla(){
-        return new ElementMotxilla<VideoGame>(this, this.critScore, this.userScore, this.salesGlobal);
+        return new ElementMotxilla<>(this, this.critScore, this.userScore, this.salesGlobal);
     }
 
     public int getIndex() {

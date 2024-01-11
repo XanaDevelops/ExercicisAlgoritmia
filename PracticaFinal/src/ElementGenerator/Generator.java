@@ -26,19 +26,10 @@ import java.util.List;
 public class Generator {
 
     public static final String csvPath = "Video_Games.csv";
+    public static final String allGames  = "games.dat";
     
-    
-    public static final String
-            allGames  = "games.dat";
-    
-    
-    private FileReader fReader;
-
-    public Generator() throws FileNotFoundException, IOException, CsvValidationException {
-        fReader = new FileReader(csvPath);
-    }
-    
-    public void generateAll() throws CsvException, IOException{
+    public static void generateAll() throws CsvException, IOException{
+        FileReader fReader = new FileReader(csvPath);
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new BufferedOutputStream(new FileOutputStream(allGames))); CSVReader reader = new CSVReader(fReader)) {
             List<String[]> games = reader.readAll();
@@ -55,19 +46,30 @@ public class Generator {
     }
     
     
-    public ElementMotxilla[] generate(int[] indexes) throws IOException, CsvValidationException{
-        ElementMotxilla<VideoGame>[] elems = new ElementMotxilla[indexes.length];
+    public static ElementMotxilla[] generate(int[] indexes) throws IOException, CsvValidationException{
+        ArrayList<ElementMotxilla<VideoGame>> elems = new ArrayList<>();
+        //ElementMotxilla<VideoGame>[] elems = new ElementMotxilla[indexes.length];
+        FileReader fReader = new FileReader(csvPath);
         try (CSVReader reader = new CSVReader(fReader)) {
             int lastIndex=0;
-            System.out.println(elems.length);
-            for (int i = 0; i < elems.length; i++) {
+            System.out.println(indexes.length);
+            for (int i = 0; i < indexes.length; i++) {
                 reader.skip(indexes[i]-lastIndex);
                 lastIndex=indexes[i];
-                elems[i] = new VideoGame(reader.peek()).toElementMotxilla();
-                System.out.println(i+" "+elems[i].getElement());
+                //System.out.println("i "+i);
+                //System.out.println(Arrays.toString(reader.peek()));
+                try{
+                    elems.add(new VideoGame(reader.peek()).toElementMotxilla());
+                    System.out.println(elems.get(i).getElement());
+                }catch(IllegalArgumentException ex){
+                    System.err.println("ERROR: S'ha intentat convertir a ElementMotxilla un VideoJoc no valid (incomplet)\nAquesta entrada sera ignorada "
+                            +lastIndex);
+                }
             }
         }
-        return elems;
+        ElementMotxilla<VideoGame>[] ret = new ElementMotxilla[elems.size()];
+        elems.toArray(ret);
+        return ret;
     }
     
 }
