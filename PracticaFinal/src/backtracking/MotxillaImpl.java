@@ -29,7 +29,7 @@ public class MotxillaImpl implements Motxilla {
         t[k] = -1;
         while (t[k] < 1) {
             t[k]++;
-            System.out.println(Arrays.toString(t));
+
             sum(a, comprov, t, sol, W1, W2);
             if (comprov[0] < W1 && comprov[1] < W2 && k < t.length) {
                 if (k < t.length - 1) {
@@ -59,7 +59,7 @@ public class MotxillaImpl implements Motxilla {
         while (k >= 0) {
             if (t[k] < 1) {
                 t[k]++;
-                System.out.println(Arrays.toString(t));
+
                 sum(a, comprov, t, sol, W1, W2);
                 if (comprov[0] < W1 && comprov[1] < W2 && k < t.length) {
                     if (k < t.length - 1) {
@@ -83,7 +83,7 @@ public class MotxillaImpl implements Motxilla {
             comprov[2] += sol[x] * a[x].getProfit();
             comprov[3] += t[x] * a[x].getProfit();
         }
-        if (comprov[3] > comprov[2] && comprov[0] <= W1 && comprov[0] <= W1) {
+        if (comprov[3] > comprov[2] && comprov[0] <= W1 && comprov[1] <= W2) {
             System.arraycopy(t, 0, sol, 0, t.length);
         }
 
