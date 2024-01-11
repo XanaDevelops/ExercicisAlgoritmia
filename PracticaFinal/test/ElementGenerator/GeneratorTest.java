@@ -45,10 +45,10 @@ public class GeneratorTest {
     public void testSomeMethod() throws CsvException {
         try {
             // TODO review the generated test code and remove the default call to fail.
-            Generator gen = new Generator();
-            gen.generateAll();
+            Generator.generateAll();
         } catch (IOException | CsvValidationException ex) {
             Logger.getLogger(GeneratorTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
         }
         
         assertTrue(true);
