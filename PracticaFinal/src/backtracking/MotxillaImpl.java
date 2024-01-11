@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 /**
  *
+ * @author Daniel, Pere
  * @author antoni
  */
 public class MotxillaImpl implements Motxilla {
@@ -59,12 +60,10 @@ public class MotxillaImpl implements Motxilla {
         while (k >= 0) {
             if (t[k] < 1) {
                 t[k]++;
-
                 sum(a, comprov, t, sol, W1, W2);
                 /*aqui si la suma resultant dels pesos1 i pesos2 es inferior al maxim 
                 i no hem arribat al limit del array seguim avançant. sino retrocedim. */
                 if (comprov[0] < W1 && comprov[1] < W2 && k < t.length) {
-
                     if (k < t.length - 1) {
                         k++;
                         t[k] = -1;
@@ -77,19 +76,24 @@ public class MotxillaImpl implements Motxilla {
         }
     }
 
- /*El seguent metode es correspon a la funció de poda.Que ens diu si la proxima branca a visitar es viable o se pot descartar.
- * a es el conjunt d'elements. 
- * comprov es un arrya en el qual guardarem dins la posicio 0  guardarem la suma dels pesos1 que actualment hem agafat , dins 1 
-  la suma dels pesos2 dins la posicio 2  guardarem el profit de la millor combinacio per ara i dins 
-  la posicio 3 guarderem el profit de la combinacio actual.
- *t es el array que conte  la combinació actual.
- *sol  conte la millor combinació de elements fins aleshores.
- *W1 es el pes maxim 1
- *w2 es el pes maxim 2
+    /**
+     * El seguent metode es correspon a la funció de poda.Que ens diu si la
+     * proxima branca a visitar es viable o se pot descartar. a es el conjunt
+     * d'elements.
+     *
+     * @param comprov es un array en el qual guardarem:
+     * 0 suma dels pesos1 actual<br>
+     * 1 suma dels pesos2 actua<br>
+     * 2 profit de la millor combinacio<br>
+     * 3 profit de la combinacio actual.<br>
+     * @param t es el array que conte la combinació actual
+     * @param sol conte la millor combinació de elements fins aleshores.
+     * @param W1 es el pes maxim 1
+     * @param W2 es el pes maxim 2
      */
     private void sum(ElementMotxilla[] a, double comprov[], int[] t, int sol[], double W1, double W2) {
         Arrays.fill(comprov, 0);
-//en aquest bucle optenim la suma dels pesos1 i 2 el profit actual i el prrofit de la millor solució fins aleshores.
+        //en aquest bucle optenim la suma dels pesos1 i 2 el profit actual i el prrofit de la millor solució fins aleshores.
         for (int x = 0; x < a.length; x++) {
             comprov[0] += t[x] * a[x].getWeigth1();
             comprov[1] += t[x] * a[x].getWeigth2();
@@ -102,7 +106,11 @@ public class MotxillaImpl implements Motxilla {
         }
 
     }
-//Aquest metode crea un array que nomes contindra els elemnets que dins aux  estiguin marcats en 1.
+
+    /**
+     * Aquest metode crea un array que nomes contindra els elemnets que dins aux
+     * estiguin marcats en 1.
+     */
     private ElementMotxilla[] CrearSol(int[] aux, ElementMotxilla a[]) {
         int lenght = 0;
         int pos = 0;
@@ -111,16 +119,13 @@ public class MotxillaImpl implements Motxilla {
             lenght = lenght + aux[x] * aux[x];
         }
         ElementMotxilla[] sol = new ElementMotxilla[lenght];
-     //aqui guardo dins sol tots els elements marcats en 1.
+        //aqui guardo dins sol tots els elements marcats en 1.
         for (int x = 0; x < aux.length; x++) {
-
             if (aux[x] == 1) {
                 sol[pos] = a[x];
                 pos++;
             }
-
         }
-
         return sol;
     }
 

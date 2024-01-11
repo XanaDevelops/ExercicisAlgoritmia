@@ -62,7 +62,7 @@ public class Generator {
                     elems.add(new VideoGame(reader.peek()).toElementMotxilla());
                     System.out.println(elems.get(i).getElement());
                 }catch(IllegalArgumentException ex){
-                    System.err.println("ERROR: S'ha intentat convertir a ElementMotxilla un VideoJoc no valid (incomplet)\nAquesta entrada sera ignorada "
+                    System.err.println("ERROR: S'ha intentat convertir a ElementMotxilla un VideoJoc no valid (incomplet)\nAquesta entrada serà ignorada "
                             +lastIndex);
                 }
             }
