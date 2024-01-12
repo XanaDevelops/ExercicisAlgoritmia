@@ -34,7 +34,9 @@ public class MotxillaImpl implements Motxilla {
             sum(a, comprov, t, sol, W1, W2);
             if (comprov[0] < W1 && comprov[1] < W2 && k < t.length) {
                 if (k < t.length - 1) {
-                    recursiu(a, comprov, sol, t, W1, W2, k + 1);
+                    //La precondició es compleix abans de la cridada
+                    recursiu(a, comprov, sol, t, W1, W2, k + 1); //Avança en preordre l'arbre binari
+                    //La postcondició es compleix despres de la cridada
                 }
             }
         }
