@@ -26,21 +26,21 @@ public interface Motxilla {
      * sigui el maxim dins les combinacions possibles d'elments que no superin
      * els pesos maxims.
      *
-     * *
+     * 
      *
-     * Cas base: El cas base és dona quan ja no queden possibles combinacions
+     * <br>Cas base: El cas base és dona quan ja no queden possibles combinacions
      * que no superin algun dels pesos de la motxilla en aquest cas s'acaba la
-     * recursió es retorna la solució possible amb major profit.
+     * recursió es retorna la solució possible amb major profit.<br>
      *
      *
-     * Cas General: En el cas general miram si l'element actual s'ha d'incloure
+     * <br>Cas General: En el cas general miram si l'element actual s'ha d'incloure
      * o no ,això es mira comprovant si al incloure l'objecte algun dels dos
      * pesos supera la capacitat màxima de la motxilla pel pes n'especific.També
      * miram si el profit de la combinació actual és millor a l'anterior si es
-     * així copiam la solució temporal sobre l'array que usarem per retornar de
+     *així copiam la solució temporal sobre l'array que usarem per retornar de
      * solució. En el cas que algun dels pesos actuals ja sigui igual al seu pes
      * màxim això vol dir que ja no es poden incloure més, per tant,
-     * retrocedirem en l'array d'elements
+     * retrocedirem en l'array d'elements<br>
      *
      *
      *
@@ -76,7 +76,9 @@ public interface Motxilla {
      * sigui el maxim dins les combinacions possibles d'elments que no superin
      * els pesos maxims.
      *
-     *
+     * @ord El algoritme es de complexitat O(2**n) aixo es deu a que per cada
+     * element del array tenim dos possibles camins , agafar o no agafar
+     * l'element per tant en el pitjor dels casos tendrem 2**n combinacions. 
      *
      *
      * @param a conjunt d'elements
