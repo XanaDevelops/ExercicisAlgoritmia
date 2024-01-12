@@ -100,7 +100,7 @@ public class MotxillaImpl implements Motxilla {
             comprov[2] += sol[x] * a[x].getProfit();
             comprov[3] += t[x] * a[x].getProfit();
         }
-        //aqui revisam si la solucio actual es mirror que la trobada fins aleshores si es aixi copiam la solució en t a sol
+        //aqui revisam si la solucio actual es millor que la trobada fins aleshores si es aixi copiam la solució en t a sol
         if (comprov[3] > comprov[2] && comprov[0] <= W1 && comprov[1] <= W2) {
             System.arraycopy(t, 0, sol, 0, t.length);
         }
