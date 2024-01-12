@@ -8,7 +8,7 @@ import backtracking.ElementMotxilla;
 import java.io.Serializable;
 
 /**
- *
+ * Classe Videojoc que conté tota la info d'aquest, tret del csv
  * @author danie
  */
 public class VideoGame implements Serializable {

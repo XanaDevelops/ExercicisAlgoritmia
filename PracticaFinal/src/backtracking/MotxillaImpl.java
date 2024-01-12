@@ -7,6 +7,7 @@ package backtracking;
 import java.util.Arrays;
 
 /**
+ * Classe per a la solució
  *
  * @author Daniel, Pere
  * @author antoni
@@ -80,10 +81,11 @@ public class MotxillaImpl implements Motxilla {
 
     /**
      * El seguent metode es correspon a la funció de poda.Que ens diu si la
-     * proxima branca a visitar es viable o se pot descartar. a es el conjunt
+     * proxima branca a visitar es viable o se pot descartar.a es el conjunt
      * d'elements.
      *
-     * @param comprov es un array en el qual guardarem:
+     * @param a Conjunt d'elementsMotxilla
+     * @param comprov es un array en el qual guardarem:<br>
      * 0 suma dels pesos1 actual<br>
      * 1 suma dels pesos2 actua<br>
      * 2 profit de la millor combinacio<br>
@@ -93,7 +95,7 @@ public class MotxillaImpl implements Motxilla {
      * @param W1 es el pes maxim 1
      * @param W2 es el pes maxim 2
      */
-    private void sum(ElementMotxilla[] a, double comprov[], int[] t, int sol[], double W1, double W2) {
+    public void sum(ElementMotxilla[] a, double comprov[], int[] t, int sol[], double W1, double W2) {
         Arrays.fill(comprov, 0);
         //en aquest bucle optenim la suma dels pesos1 i 2 el profit actual i el prrofit de la millor solució fins aleshores.
         for (int x = 0; x < a.length; x++) {

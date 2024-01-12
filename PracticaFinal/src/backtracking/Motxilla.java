@@ -18,8 +18,8 @@ public interface Motxilla {
     /**
      * Resol la variant de la motxilla de l'enunciat de forma recursiva
      *
-     * @pre (W1 >= 0&&W2 >= 0&&a!=null&&(∀i a.length>i>=0
-     * )->(a[i].element!=null&&a[i].w1>=0&&a[i].w2>=0&&a[i].profit>=0))
+     * @pre (W1 &ge; 0&amp;&amp;W2 &ge; 0 &amp;&amp;; a&ne;null&amp;&amp;(∀i a.length&gt;i&ge;0
+     * )-&gt;(a[i].element&ne;null&amp;&amp;;a[i].w1&ge;0&amp;&amp;;a[i].w2&ge;0&amp;&amp;;a[i].profit&ge;0))
      * @post La postcondicion és que el resultat donat pel subprograma ha de
      * tornar un array no nul que contindrà la combinació d'elements màxims que
      * no superen cap dels dos pesos màxims i la qual el seu profit conjunt
@@ -51,7 +51,7 @@ public interface Motxilla {
      * ho miram per el teorema de la substració arribarem a la mateixa
      * conclusió, ja que a cada iteració en el pitjor dels casos feríem dues
      * cridades recursives una amb l'element a 0 i una amb l'element a 1 per
-     * tant a=2 per tant ens trobarem en el cas de a>1,després podem veure que
+     * tant a=2 per tant ens trobarem en el cas de a&gt;1,després podem veure que
      * c=1 ja que anam avançant d'un en un sobre l'array d'elements finalment
      * com podem veure n és igual al nombre d'elements a provar. Per tant si
      * substituïm per la fórmula corresponent que en aquest cas és O(a**n/c)
@@ -68,8 +68,8 @@ public interface Motxilla {
     /**
      * Resol la variant de la motxilla de l'enunciat de forma iterativa<br>
      *
-     * @pre (W1 >= 0&&W2 >= 0&&a!=null&&(∀i a.length>i>=0
-     * )->(a[i].element!=null&&a[i].w1>=0&&a[i].w2>=0&&a[i].profit>=0))
+     * @pre (W1 &ge; 0&amp;&amp;;W2 &ge; 0&amp;&amp;;a&ne;null&amp;&amp;;(∀i a.length&gt;i&ge;0
+     * )-&gt;(a[i].element&ne;null&amp;&amp;;a[i].w1&ge;0&amp;&amp;;a[i].w2&ge;0&amp;&amp;;a[i].profit&ge;0))
      * @post La postcondicion es que el resultat donat pel subprograma ha de
      * tornar un array no nul que contindra la combinacio d'elements maxims que
      * no superen cap dels dos pesos maxims i la qual el seu profit conjunt
