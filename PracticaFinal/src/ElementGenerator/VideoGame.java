@@ -13,13 +13,20 @@ import java.io.Serializable;
  */
 public class VideoGame implements Serializable {
 
-    //index,Name,Platform,Year_of_Release,Genre,Publisher,NA_Sales,EU_Sales,
-    //JP_Sales,Other_Sales,Global_Sales,Critic_Score,Critic_Count,User_Score
-    //User_Count,Developer,Rating
+    /**
+     * index,Name,Platform,Year_of_Release,Genre,Publisher,NA_Sales,EU_Sales,
+     * JP_Sales,Other_Sales,Global_Sales,Critic_Score,Critic_Count,User_Score
+     * User_Count,Developer,Rating
+     */
     private final int index, yearRelease, critScore, critCount, userScore, userCount;
     private final double salesNA, salesEU, salesJP, salesOT, salesGlobal;
     private final String name, platform, genre, publisher, dev, rating;
 
+    /**
+     * Videojoc tret del csv
+     * @param args String[] de Generator
+     * @see Generator
+     */
     public VideoGame(String[] args) {
         this.index = parseInt(args[0]);
         this.name = args[1];
@@ -40,7 +47,27 @@ public class VideoGame implements Serializable {
         this.rating = args[16];
     }
 
-    public VideoGame(int index, String name, String platform, int yearRelease, String genre, 
+    /**
+     * Videojoc tret del csv
+     * @param index
+     * @param name
+     * @param platform
+     * @param yearRelease
+     * @param genre
+     * @param publisher
+     * @param salesNA
+     * @param salesEU
+     * @param salesJP
+     * @param salesOT
+     * @param salesGlobal
+     * @param critScore
+     * @param critCount
+     * @param userScore
+     * @param userCount
+     * @param dev
+     * @param rating
+     */
+    public VideoGame(int index, String name, String platform, int yearRelease, String genre,
             String publisher, double salesNA, double salesEU, double salesJP, double salesOT,
             double salesGlobal, int critScore, int critCount, int userScore, int userCount,
             String dev, String rating) {
@@ -82,82 +109,158 @@ public class VideoGame implements Serializable {
         }
         return aux;
     }
-    
-    public ElementMotxilla<VideoGame> toElementMotxilla(){
+
+    /**
+     *
+     * @return El ElementMotxilla de this
+     */
+    public ElementMotxilla<VideoGame> toElementMotxilla() {
         return new ElementMotxilla<>(this, this.critScore, this.userScore, this.salesGlobal);
     }
 
+    /**
+     *
+     * @return index
+     */
     public int getIndex() {
         return index;
     }
 
+    /**
+     *
+     * @return yearRelease
+     */
     public int getYearRelease() {
         return yearRelease;
     }
 
+    /**
+     *
+     * @return critScore
+     */
     public int getCritScore() {
         return critScore;
     }
 
+    /**
+     *
+     * @return critCount
+     */
     public int getCritCount() {
         return critCount;
     }
 
+    /**
+     *
+     * @return userScore
+     */
     public int getUserScore() {
         return userScore;
     }
 
+    /**
+     *
+     * @return userCount
+     */
     public int getUserCount() {
         return userCount;
     }
 
+    /**
+     *
+     * @return salesNA
+     */
     public double getSalesNA() {
         return salesNA;
     }
 
+    /**
+     *
+     * @return salesEU
+     */
     public double getSalesEU() {
         return salesEU;
     }
 
+    /**
+     *
+     * @return salesJP
+     */
     public double getSalesJP() {
         return salesJP;
     }
 
+    /**
+     *
+     * @return salesOT
+     */
     public double getSalesOT() {
         return salesOT;
     }
 
+    /**
+     *
+     * @return salesGlobal
+     */
     public double getSalesGlobal() {
         return salesGlobal;
     }
 
+    /**
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return platform
+     */
     public String getPlatform() {
         return platform;
     }
 
+    /**
+     *
+     * @return genre
+     */
     public String getGenre() {
         return genre;
     }
 
+    /**
+     *
+     * @return publisher
+     */
     public String getPublisher() {
         return publisher;
     }
 
+    /**
+     *
+     * @return dev
+     */
     public String getDev() {
         return dev;
     }
 
+    /**
+     *
+     * @return rating
+     */
     public String getRating() {
         return rating;
     }
 
+    /**
+     *
+     * @return String representatiu de this
+     */
     @Override
     public String toString() {
-        return "VideoGame{"+ "name= "+name+", critScore= "+critScore+", userScore= "+userScore+", globalSales= "+salesGlobal+ '}';
+        return "VideoGame{" + "name= " + name + ", critScore= " + critScore + ", userScore= " + userScore + ", globalSales= " + salesGlobal + '}';
     }
 
 }

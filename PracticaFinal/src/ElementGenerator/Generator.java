@@ -20,14 +20,26 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * Generador de VideoJoc/ElementMotxilla per als tests
  * @author danie
  */
 public class Generator {
 
+    /**
+     * Ruta al csv de videojocs
+     */
     public static final String csvPath = "Video_Games.csv";
+    /**
+     * On es guarden tots els jocs amb generateAll()
+     * @see generateAll()
+     */
     public static final String allGames  = "games.dat";
     
+    /**
+     * Crea un .dat amb tots els jocs
+     * @throws CsvException
+     * @throws IOException 
+     */
     public static void generateAll() throws CsvException, IOException{
         FileReader fReader = new FileReader(csvPath);
         try (ObjectOutputStream oos = new ObjectOutputStream(
@@ -45,7 +57,13 @@ public class Generator {
         }
     }
     
-    
+    /**
+     * Genera a partir de indexes els ElementMotxilla
+     * @param indexes Array ordenat on min()&gt;1 
+     * @return ElementMotxilla[] 
+     * @throws IOException
+     * @throws CsvValidationException
+     */
     public static ElementMotxilla[] generate(int[] indexes) throws IOException, CsvValidationException{
         ArrayList<ElementMotxilla<VideoGame>> elems = new ArrayList<>();
         //ElementMotxilla<VideoGame>[] elems = new ElementMotxilla[indexes.length];

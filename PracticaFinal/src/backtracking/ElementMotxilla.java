@@ -8,6 +8,7 @@ package backtracking;
  * Element per a la motxilla emmagatzema de l'element informació genèrica, el
  * pes 1 (weight1>=0), el pes2 (weight2>=0) i el profit>=0.
  * @author antoni
+ * @param <E>
  */
 public class ElementMotxilla<E> {
 
